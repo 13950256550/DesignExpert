@@ -128,7 +128,7 @@ public class CheckQuestion1Panel extends CommonPanel {
 		inputItemConfigs.add(inputItemConfig);
 		inputItemConfig = new InputItemConfig(CheckQuestion1Constant.出口内直径DHO);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(CheckQuestion1Constant.出口外直径BTO);
+		inputItemConfig = new InputItemConfig(CheckQuestion1Constant.出口外直径DTO);
 		inputItemConfigs.add(inputItemConfig);
 		rowConfigs.add(new RowConfig(inputItemConfigs));
 		

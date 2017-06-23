@@ -204,7 +204,7 @@ public class ReadInputFileData {
 			result.put(CheckQuestion1Constant.展弦比ASPV, arrayString[7]);
 			result.put(CheckQuestion1Constant.稠度BTV, arrayString[8]);
 			result.put(CheckQuestion1Constant.出口内直径DHO, arrayString[9]);
-			result.put(CheckQuestion1Constant.出口外直径BTO, arrayString[10]);
+			result.put(CheckQuestion1Constant.出口外直径DTO, arrayString[10]);
 			result.put(CheckQuestion1Constant.一转尖根弦长比BTH1, arrayString[11]);
 		}else{
 			System.out.println(list.get(row));
@@ -725,7 +725,7 @@ public class ReadInputFileData {
 		map.put(CheckQuestion1Constant.展弦比ASPV, arrayString[7]);
 		map.put(CheckQuestion1Constant.稠度BTV, arrayString[8]);
 		map.put(CheckQuestion1Constant.出口内直径DHO, arrayString[9]);
-		map.put(CheckQuestion1Constant.出口外直径BTO, arrayString[10]);
+		map.put(CheckQuestion1Constant.出口外直径DTO, arrayString[10]);
 		map.put(CheckQuestion1Constant.一转尖根弦长比BTH1, arrayString[11]);
 		
 		//#21:E1，DE，CMV，DENR，DENS,DENB，DRES，ALFK，PR0─9 个参数

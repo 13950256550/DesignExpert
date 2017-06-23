@@ -37,7 +37,7 @@ public class CheckQuestion1Constant {
 	public static String 稠度BTV = "稠度 BTV";
 	public static String 前压汽机 = "前压汽机(机组,转接段)";
 	public static String 出口内直径DHO = "出口内直径 DHO";
-	public static String 出口外直径BTO = "出口外直径 BTO";
+	public static String 出口外直径DTO = "出口外直径 DTO";
 	public static String 一转尖根弦长比BTH1 = "一转尖根弦长比 BTH1";
 	public static String λ085填10 = "λ≯0.85,填1.0";
 	public static String 进口导叶最大相对厚度CMV = "进口导叶最大相对厚度 CMV";

@@ -100,7 +100,7 @@ public class WriteDataToFile {
 		sb.append(map.get(CheckQuestion1Constant.展弦比ASPV)).append(Constant.blank);
 		sb.append(map.get(CheckQuestion1Constant.稠度BTV)).append(Constant.blank);
 		sb.append(map.get(CheckQuestion1Constant.出口内直径DHO)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.出口外直径BTO)).append(Constant.blank);
+		sb.append(map.get(CheckQuestion1Constant.出口外直径DTO)).append(Constant.blank);
 		sb.append(map.get(CheckQuestion1Constant.一转尖根弦长比BTH1)).append(Constant.newLine);
 		
 		sb.append(map.get(CheckQuestion1Constant.第一级E1)).append(Constant.blank);
@@ -219,7 +219,7 @@ public class WriteDataToFile {
 		sb.append(map.get(CheckQuestion1Constant.展弦比ASPV)).append(Constant.blank);
 		sb.append(map.get(CheckQuestion1Constant.稠度BTV)).append(Constant.blank);
 		sb.append(map.get(CheckQuestion1Constant.出口内直径DHO)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.出口外直径BTO)).append(Constant.blank);
+		sb.append(map.get(CheckQuestion1Constant.出口外直径DTO)).append(Constant.blank);
 		sb.append(map.get(CheckQuestion1Constant.一转尖根弦长比BTH1)).append(Constant.newLine);
 		
 		sb.append(map.get(CheckQuestion1Constant.第一级E1)).append(Constant.blank);
@@ -524,7 +524,7 @@ public class WriteDataToFile {
 		sb.append(map.get(CheckQuestion1Constant.展弦比ASPV)).append(Constant.blank);
 		sb.append(map.get(CheckQuestion1Constant.稠度BTV)).append(Constant.blank);
 		sb.append(map.get(CheckQuestion1Constant.出口内直径DHO)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.出口外直径BTO)).append(Constant.blank);
+		sb.append(map.get(CheckQuestion1Constant.出口外直径DTO)).append(Constant.blank);
 		sb.append(map.get(CheckQuestion1Constant.一转尖根弦长比BTH1)).append(Constant.newLine);
 		
 		//#21:E1，DE，CMV，DENR，DENS,DENB，DRES，ALFK，PR0─9 个参数

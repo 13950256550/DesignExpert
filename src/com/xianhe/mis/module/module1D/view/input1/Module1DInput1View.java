@@ -10,16 +10,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 
 import com.xianhe.mis.CommonPanel;
+import com.xianhe.mis.module.module1D.constant.CheckQuestion1Constant;
+import com.xianhe.mis.module.module1D.constant.DesignProblemConstant;
 import com.xianhe.mis.module.module1D.readwritefile.PathUtil;
 import com.xianhe.mis.module.module1D.readwritefile.ReadInputFileData;
 import com.xianhe.mis.module.module1D.readwritefile.WriteDataToFile;
 import com.xianhe.mis.module.module1D.view.output.Module1DOutputView;
 
 import javafx.geometry.Side;
+import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -29,7 +33,8 @@ import javafx.scene.layout.BorderPane;
 public class Module1DInput1View extends BorderPane{
 	public static Logger logger = Logger.getLogger(Module1DOutputView.class);
 	private static List<CommonPanel> panels = null;
-	private TextArea textArea = null;
+	public static TextArea textArea = null;
+	public static TabPane tabPane2 = null;
 	
 	public Module1DInput1View(){
 		panels = new ArrayList<CommonPanel>();
@@ -100,7 +105,7 @@ public class Module1DInput1View extends BorderPane{
 				//textArea.setText(getInputFileContent());
 				StringBuffer sb = WriteDataToFile.getBufferFromMap(map);
 				//textArea.setText(sb.toString());
-				logger.info("\r\n"+sb.toString());
+				logger.info("\r\n"+Module1DInput1View.getCommonPanel(0));
 			}
 		});
 	}
@@ -111,7 +116,7 @@ public class Module1DInput1View extends BorderPane{
 		tab.setClosable(false);
 		tabPane.getTabs().add(tab);
 		
-		TabPane tabPane2 = new TabPane();
+		tabPane2 = new TabPane();
 		tabPane2.setSide(Side.TOP);
 		tab.setContent(tabPane2);
 		
@@ -128,6 +133,8 @@ public class Module1DInput1View extends BorderPane{
 				for(CommonPanel panel:panels){
 					panel.setValueFromMap(map);
 				}
+				
+				Module1DInput1View.copyCheckQuestionToDesignProblem();
 			}
 		});
 		
@@ -245,5 +252,177 @@ public class Module1DInput1View extends BorderPane{
 		AspectRatioCalculatePanel aspectRatioCalculatePanel = new AspectRatioCalculatePanel();
 		tab.setContent(aspectRatioCalculatePanel);
 		panels.add(aspectRatioCalculatePanel);
+	}
+	
+	public static CommonPanel getCommonPanel(int index){
+		Node node = tabPane2.getTabs().get(index).getContent();
+		if(node instanceof ScrollPane){
+			node = ((ScrollPane) node).getContent();
+		}
+		return (CommonPanel) node;
+	}
+	
+	public static synchronized void copyCheckQuestionToDesignProblem(){
+		CommonPanel checkQuestionPanel = getCommonPanel(2);
+		CommonPanel designProblemPanel = getCommonPanel(1);
+		
+		Map<String,Object> map = new HashMap<String,Object>();
+		Map<String,Object> map2 = new HashMap<String,Object>();
+		checkQuestionPanel.getValueIntoMap(map);
+		
+		Set<String> keys = map.keySet();
+		for(String key:keys){
+			Object value = map.get(key);
+			
+			//#1:RPM,PR,G,P0,T0,EFF,KH,ISTAGE,KPATH,KF,KC,SIG0,SIGV─13 个总参数
+			//#1:RPM，PR，G，P0，T0，EFF，KH，ISTAGE，KPATH，KF，KC，SIG0，SIGV─13 个总参数
+			if(key.equals(CheckQuestion1Constant.转速度或第一级转子叶尖切线速度_RPM)){
+				map2.put(DesignProblemConstant.转速或第一级转子叶尖切线速度RPM, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.总压比_PR)){
+				map2.put(DesignProblemConstant.总压比PR, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.流量_G)){
+				map2.put(DesignProblemConstant.流量G, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.进口总压_PO)){
+				map2.put(DesignProblemConstant.进口总压PO, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.进口总温_TO)){
+				map2.put(DesignProblemConstant.进口总温TO, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.绝热效率_EFF)){
+				map2.put(DesignProblemConstant.绝热效率EFF, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.功率存储系数KH)){
+				map2.put(DesignProblemConstant.设计压比提高量KH, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.级数_ISTAGE)){
+				map2.put(DesignProblemConstant.级数ISTAGE, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.流路输入标识KPATH)){
+				map2.put(DesignProblemConstant.流路输入标识KPATH, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.叶型标识KF)){
+				map2.put(DesignProblemConstant.叶型标识KF, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.压气机类型KC)){
+				map2.put(DesignProblemConstant.压气机类型KC, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.进口段总压回复SIGO)){
+				map2.put(DesignProblemConstant.进口段总压恢复SIGO, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.进口导叶总压回复SIGV)){
+				map2.put(DesignProblemConstant.进口导叶总压恢复SIGV, value);
+			}
+			
+			//#7:KG，ASP1，ASPK，ABV，ABR，ABS，BTHV，ASPV，BTV，DH0，DT0，BTH1─12 个几何参数
+			//#20:KG，FF，FF，ABV，ABR，ABS，BTHV，ASPV，BTV，DH0，DT0，BTH1─12 个结构参数
+			if(key.equals(CheckQuestion1Constant.流量缩放系数KG)){
+				map2.put(DesignProblemConstant.流量缩放系数KG, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.一转展旋比ASP1)){
+				map2.put(DesignProblemConstant.一转展弦比ASP1, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.最后级展旋比ASPK)){
+				map2.put(DesignProblemConstant.末转展弦比ASPK, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.进口导叶ABV)){
+				map2.put(DesignProblemConstant.进口导叶ABV, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.转子叶片ABR)){
+				map2.put(DesignProblemConstant.转子叶片ABR, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.静子叶片ABS)){
+				map2.put(DesignProblemConstant.静子叶片ABS, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.尖根弦长比BTHV)){
+				map2.put(DesignProblemConstant.尖根弦长比BTHV, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.展弦比ASPV)){
+				map2.put(DesignProblemConstant.展弦比ASPV, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.稠度BTV)){
+				map2.put(DesignProblemConstant.稠度BTV, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.出口内直径DHO)){
+				map2.put(DesignProblemConstant.出口内直径DHO, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.出口外直径DTO)){
+				map2.put(DesignProblemConstant.出口外直径DTO, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.一转尖根弦长比BTH1)){
+				map2.put(DesignProblemConstant.一转尖根弦长比BTH1, value);
+			}
+			
+			//#8:E1，DE，CMV，DENR，DENS，DENB，DRES，ALFK，PR0─9 个参数
+			//#21:E1，DE，CMV，DENR，DENS,DENB，DRES，ALFK，PR0─9 个参数
+			if(key.equals(CheckQuestion1Constant.第一级E1)){
+				map2.put(DesignProblemConstant.第一级E1, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.最后级与第一级差DE)){
+				map2.put(DesignProblemConstant.最后级与第一级差DE, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.进口导叶最大相对厚度CMV)){
+				map2.put(DesignProblemConstant.进口导叶最大相对厚度CMV, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.转件DENR)){
+				map2.put(DesignProblemConstant.转件DENR, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.静件DENS)){
+				map2.put(DesignProblemConstant.静件DENS, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.叶片DENB)){
+				map2.put(DesignProblemConstant.叶片DENB, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.转子根许用应力DRES)){
+				map2.put(DesignProblemConstant.转子根许用应力DRES, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.最后静子出口气流角ALFK)){
+				map2.put(DesignProblemConstant.最后静子出口气流角ALFK, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.本气压机前已有压比PRO)){
+				map2.put(DesignProblemConstant.本压气机前已有压比PRO, value);
+			}
+			
+			//#9:HORDA─最小弦长，m
+			//#22:HORDA─最小弦长，m
+			if(key.equals(CheckQuestion1Constant.最小弦比HORDA)){
+				map2.put(DesignProblemConstant.最小弦长HORDA, value);
+			}
+		}
+		
+		designProblemPanel.setValueFromMap(map2);
 	}
 }
