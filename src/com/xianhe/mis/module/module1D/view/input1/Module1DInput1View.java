@@ -453,6 +453,14 @@ public class Module1DInput1View extends BorderPane{
 			DFF─0.0
 			DHK─压气机出口内径
 			*/
+			if(key.equals("CheckQuestion2Panel.grid1")){
+				List<List<String>> grid1 = (List<List<String>>)value;
+				for(List<String> row:grid1){
+					for(String col:row){
+						System.out.println(" "+col);
+					}
+				}
+			}
 			
 		}
 		
