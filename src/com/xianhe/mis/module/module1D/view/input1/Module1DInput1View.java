@@ -416,11 +416,44 @@ public class Module1DInput1View extends BorderPane{
 				map2.put(DesignProblemConstant.本压气机前已有压比PRO, value);
 			}
 			
+			//#6:VA1，VAM，VAC，ALF1，OMGN，DOMG，HZ1，HZM，HZK,KH1,DKH，KHMIN─12 个气动参数
+			//#18:ALF0─第一级转子前绝对气流角
+			//#19:KH1，DKH，KHMIN─如已输入KHI 值，此三量均写0.0
+			
+			if(key.equals(CheckQuestion1Constant.一转进气流角ALFO)){
+				map2.put(DesignProblemConstant.一转进气流角ALF1, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.第一级KH1)){
+				map2.put(DesignProblemConstant.第一级KH1, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.逐级递减DKH)){
+				map2.put(DesignProblemConstant.逐级递减值DKH, value);
+			}
+			
+			if(key.equals(CheckQuestion1Constant.最小值KHMIN)){
+				map2.put(DesignProblemConstant.最小值KHMIN, value);
+			}
+			
 			//#9:HORDA─最小弦长，m
 			//#22:HORDA─最小弦长，m
 			if(key.equals(CheckQuestion1Constant.最小弦比HORDA)){
 				map2.put(DesignProblemConstant.最小弦长HORDA, value);
 			}
+			
+			/*#2:DT1，D1，DH1，DTC，DMC，DHC，DTK，DFF，DHK─给定流路的9 个直径值
+			DT1─第一级转子进口叶尖直径
+			D1─第一级转子进口轮毂比
+			DH1─第一级转子进口根部直径
+			DTC─等外径写1.0
+			DMC─等中径写1.0
+			DHC─等内径写1.0
+			DTK─压气机出口外径
+			DFF─0.0
+			DHK─压气机出口内径
+			*/
+			
 		}
 		
 		designProblemPanel.setValueFromMap(map2);
