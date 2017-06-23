@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<FileMapping> 
+  
+	<!-- module 属性说明
+	 		name：模块名称
+	 		path：模块相对于方案的路径	 		
+			note: 备注说明
+	 -->
+	<!-- submodule 属性说明 
+	 		name：模块名称
+	 		path：模块相对于方案的路径	 		
+			note: 备注说明
+	 --> 
+    <!-- item 属性说明
+			key: 唯一性标识
+	 		caption：界面显示名称
+	 		path：对应的文件路径及名称
+	 		type: 用于那种类型 输入（IN）、计算（EXE）、输出（OUT）、图形（GRA）、参数（PARAM）、文件夹（FLD）
+			show: 是否显示在界面左侧的树结构中 显示（1） 不显示（0）			
+			code: 内部所使用代号(由程序内部定义)
+			note: 备注说明
+	-->
+  <module key="1D" caption="1D" path="\1D" show="1" note="">     
+	<item key="1D_IN1" caption="1D_IN1" path="\1D\1D_IN1" type="IN" show="1" code="81" note=""/> <!-- DC1D.DAT -->
+	<item key="1D_IN2" caption="1D_IN2" path="\1D\1D_IN2" type="IN" show="1" code="82" note=""/> <!-- DGAZD.D -->
+	<item key="1D_RUN" caption="1D_RUN" path="\1D\1D_RUN.EXE" type="EXE" show="1" code="83" note=""/> <!-- C1D.EXE -->
+	<item key="1D_OUT" caption="1D_OUT" path="\1D\1D_OUT" type="OUT" show="1" code="84" note=""/> <!-- C1D.LIS -->
+	<item key="1D_PARAM1" caption="1D_PARAM1" path="\1D\S2_IN" type="PARAM" show="0" code="" note=""/> <!-- GAZD.D -->
+	<item key="1D_PARAM2" caption="1D_PARAM2" path="\1D\DROW" type="PARAM" show="0" code="" note=""/> <!-- DROW -->
+	<item key="1D_GRA1" caption="1D_GRA1" path="\1D\aero.dat" type="GRA" show="0" code="" note=""/> 
+	<item key="1D_GRA2" caption="1D_GRA2" path="\1D\foil.dat" type="GRA" show="0" code="" note=""/>
+	<item key="1D_GRA3" caption="1D_GRA3" path="\1D\path.dat" type="GRA" show="0" code="" note=""/>
+	<item key="1D_GRA4" caption="1D_GRA4" path="\1D\perf1.dat" type="GRA" show="0" code="" note=""/>
+	<item key="1D_GRA5" caption="1D_GRA5" path="\1D\perf2.dat" type="GRA" show="0" code="" note=""/>
+	<item key="1D_GRA6" caption="1D_GRA6" path="\1D\oper.dat" type="GRA" show="0" code="" note=""/>  
+  </module>
+  
+  <module key="S2" caption="S2" path="\S2" show="1" note=""> 
+    <submodule key="S2" caption="S2" path="\S2" show="1" note=""> 
+      <item key="S2_IN" caption="S2_IN" path="\S2\S2_IN" type="IN" show="1" code="0" note=""/> <!-- GAZD.D -->
+	  <item key="S2_RUN" caption="S2_RUN" path="\S2\S2_RUN.EXE" type="EXE" show="1" code="3" note=""/> <!-- FLOW.EXE -->
+	  <item key="S2_OUT" caption="S2_OUT" path="\S2\S2_OUT" type="OUT" show="1" code="2" note=""/> <!-- GAZR.LIS -->
+	  <item key="S2_GRA1" caption="S2_GRA1" path="\S2\GRA\\rot**.dat" type="GRA" show="0" code="" note=""/> 
+	  <item key="S2_GRA2" caption="S2_GRA2" path="\S2\GRA\\sta**.dat" type="GRA" show="0" code="" note=""/> 
+	  <item key="S2_GRA3" caption="S2_GRA3" path="\S2\GRA\\xrot**.dat" type="GRA" show="0" code="" note=""/>
+	  <item key="S2_GRA4" caption="S2_GRA4" path="\S2\GRA\\xsta**.dat" type="GRA" show="0" code="" note=""/>
+	  <item key="S2_GRA5" caption="S2_GRA5" path="\S2\GRA\\brot**.dat" type="GRA" show="0" code="" note=""/>
+	  <item key="S2_GRA6" caption="S2_GRA6" path="\S2\GRA\\bsta**.dat" type="GRA" show="0" code="" note=""/>
+	  <item key="S2_GRA7" caption="S2_GRA7" path="\S2\GRA\\bxrot**.dat" type="GRA" show="0" code="" note=""/>
+	  <item key="S2_GRA8" caption="S2_GRA8" path="\S2\GRA\\bxsta**.dat" type="GRA" show="0" code="" note=""/>
+	  <item key="S2_GRA9" caption="S2_GRA9" path="\S2\GRA\\PATH/h.dat" type="GRA" show="0" code="" note=""/>
+	  <item key="S2_GRA10" caption="S2_GRA10" path="\S2\GRA\\PATH/qh.dat" type="GRA" show="0" code="" note=""/>
+	  <item key="S2_GRA11" caption="S2_GRA11" path="\S2\GRA\\PATH/t.dat" type="GRA" show="0" code="" note=""/>
+	  <item key="S2_GRA12" caption="S2_GRA12" path="\S2\GRA\\PATH/bh.dat" type="GRA" show="0" code="" note=""/>
+	  <item key="S2_GRA13" caption="S2_GRA13" path="\S2\GRA\\PATH/bqh.dat" type="GRA" show="0" code="" note=""/>
+	  <item key="S2_GRA14" caption="S2_GRA14" path="\S2\GRA\\PATH/bt.dat" type="GRA" show="0" code="" note=""/>
+    </submodule>
+	<submodule key="S2B" caption="S2B" path="" show="1" note=""> 
+      <item key="S2B_IN1" caption="S2B_IN" path="\S2\S2B_IN" type="IN" show="1" code="1" note=""/> <!-- FLOBLA.DAT -->
+	  <item key="S2B_RUN" caption="S2B_RUN" path="\S2\S2B_RUN.EXE" type="EXE" show="1" code="5" note=""/> <!-- FLOBLA.EXE -->
+	  <item key="S2B_RUN1" caption="S2B_RUN1" path="\S2\S2B_RUN1.EXE" type="EXE" show="1" code="6" note=""/> <!-- FLOBLA1.EXE -->
+	  <item key="S2B_OUT" caption="S2B_OUT" path="\S2\S2B_OUT" type="OUT" show="1" code="4" note=""/>	 <!-- FLOBLA.TXT -->
+    </submodule>  
+  </module>
+  
+  <module key="BLD" caption="BLD" path="\BLD" show="1" note="">
+	<item key="BLD_IN1" caption="BLD_IN1**" path="\BLD\BLD_IN1**" type="IN" show="1" code="6" note=""/> <!-- DROW**.D -->
+	<item key="BLD_IN2" caption="BLD_IN2**" path="\BLD\BLD_IN2**" type="IN" show="1" code="" note=""/> <!-- DROWB**.D -->
+	<item key="BLD_IN3" caption="BLD_IN3**" path="\BLD\BLD_IN3**" type="IN" show="0" code="7" note=""/> <!-- XGD**.D -->	
+	<item key="BLD_RUN" caption="BLD_RUN" path="\BLD\BLD_RUN.EXE" type="EXE" show="1" code="8" note=""/> <!-- BLADE.EXE -->
+	<item key="BLD_OUT1" caption="BLD_OUT1**" path="\BLD\OUT\\BLD_OUT1**" type="OUT" show="1" code="9" note=""/> <!-- OUT**.LIS -->
+	<item key="BLD_OUT2" caption="BLD_OUT2**" path="\BLD\OUT\\BLD_OUT2**" type="OUT" show="1" code="" note=""/> <!-- OUTB**.LIS -->
+	<item key="BLD_OUT3" caption="BLD_OUT3**" path="\BLD\OUT\\BLD_OUT3**" type="OUT" show="0" code="10" note=""/> <!-- FIG**.D -->	
+	<item key="BLD_OUT4" caption="BLD_OUT4**" path="\BLD\OUT\\BLD_OUT4**" type="OUT" show="0" code="11" note=""/> <!-- ROW**.PRE -->	
+	<item key="CFD" caption="CFD" path="\BLD\CFD" type="FLD" show="1" code="" note=""/> <!-- 3DB -->
+	<item key="BLD_GRA1" caption="BLD_GRA1" path="\BLD\GRA\\id**.dat" type="GRA" show="0" code="" note=""/>
+	<item key="BLD_GRA2" caption="BLD_GRA2" path="\BLD\GRA\\input**.dat" type="GRA" show="0" code="" note=""/>
+	<item key="BLD_GRA3" caption="BLD_GRA3" path="\BLD\GRA\\rr**.dat" type="GRA" show="0" code="" note=""/>
+	<item key="BLD_GRA4" caption="BLD_GRA4" path="\BLD\GRA\\ss**.dat" type="GRA" show="0" code="" note=""/>
+	<item key="BLD_GRA5" caption="BLD_GRA5" path="\BLD\GRA\\zb**.dat" type="GRA" show="0" code="" note=""/>
+    <item key="BLD_GRA6" caption="BLD_GRA6" path="\BLD\GRA\\zz**.dat" type="GRA" show="0" code="" note=""/>
+	
+    <submodule key="S0" caption="S0" path="\S0" show="1" note=""> <!-- VIGV -->
+      <item key="S0_IN1" caption="S0_IN1" path="\BLD\S0\S0_IN" type="IN" show="1" code="12" note=""/><!-- DVIGV.D -->
+	  <item key="S0_IN2" caption="PATH" path="\BLD\S0\PATH" type="IN" show="1" code="13" note=""/><!-- PATH -->
+	  <item key="S0_RUN" caption="S0_RUN" path="\BLD\S0\S0_RUN.EXE" type="EXE" show="1" code="14" note=""/><!-- VIGV.EXE -->
+	  <item key="S0_OUT1" caption="S0_OUT1" path="\BLD\S0\S0_OUT1" type="OUT" show="1" code="15" note=""/><!-- OUT1.LIS -->
+	  <item key="S0_OUT2" caption="S0_OUT2" path="\BLD\S0\S0_OUT2" type="OUT" show="1" code="16" note=""/><!-- OUT2.LIS -->
+	  <item key="S0_OUT3" caption="S0_OUT3" path="\BLD\S0\SUF1" type="OUT" show="1" code="17" note=""/><!-- PLAN1 -->
+	  <item key="S0_OUT4" caption="S0_OUT4" path="\BLD\S0\SUF2" type="OUT" show="0" code="18" note=""/><!-- PLAN2 -->
+	  <item key="S0_OUT5" caption="S0_OUT5" path="\BLD\S0\FIGA1" type="OUT" show="0" code="19" note=""/><!-- FIG1 -->
+	  <item key="S0_OUT6" caption="S0_OUT6" path="\BLD\S0\FIGA2" type="OUT" show="0" code="20" note=""/><!-- FIG2 -->	  	
+    </submodule>
+	
+	<submodule key="IOGV" caption="IOGV" path="\IOGV" show="1" note=""> <!-- IOGV -->
+      <item key="IOGV_IN1" caption="IOGV_IN1" path="\BLD\IOGV\DIOGV.D" type="IN" show="1" code="21" note=""/>
+	  <item key="IOGV_IN2" caption="IOGV_IN2" path="\BLD\IOGV\PATH" type="IN" show="1" code="22" note=""/>
+	  <item key="IOGV_RUN" caption="IOGV_RUN" path="\BLD\IOGV\IOGV.EXE" type="EXE" show="1" code="23" note=""/>
+	  <item key="IOGV_OUT1" caption="IOGV_OUT1" path="\BLD\IOGV\OUT.LIS" type="OUT" show="1" code="24" note=""/>
+	  <item key="IOGV_OUT2" caption="IOGV_OUT2" path="\BLD\IOGV\PLAN" type="OUT" show="1" code="25" note=""/>
+	  <item key="IOGV_OUT3" caption="IOGV_OUT3" path="\BLD\IOGV\FIG1" type="OUT" show="1" code="26" note=""/>
+    </submodule>  
+  </module>
+  
+  <module key="ST" caption="ST" path="\ST" show="1" note="">     
+	<item key="ST_IN1" caption="ST_IN1" path="\ST\ST_IN1" type="IN" show="1" code="27" note=""/><!-- DSTR.D -->
+	<item key="ST_IN2" caption="ST_IN2" path="\ST\ST_IN2" type="IN" show="1" code="29" note=""/><!-- PROTCH**.D -->
+	<item key="ST_RUN" caption="ST_RUN" path="\ST\ST_RUN.EXE" type="EXE" show="1" code="30" note=""/><!-- STRENGTH.EXE -->
+	<item key="ST_OUT" caption="ST_OUT" path="\ST\OUTF.LIS" type="OUT" show="1" code="31" note=""/><!-- OUTF.LIS -->
+  </module>
+  
+  <module key="3D" caption="3D" path="\3D" show="1" note=""> 
+    <submodule key="MESH1" caption="MESH1" path="\MESH1" show="1" note=""> <!-- MESH -->
+      <item key="MESH1_IN" caption="MESH1_IN" path="\MESH1\MESH1_IN" type="IN" show="1" code="32" note=""/> <!-- DMESH.D --> 
+	  <item key="MESH1_RUN" caption="MESH1_RUN" path="\MESH1\MESH1_RUN.EXE" type="EXE" show="1" code="33" note=""/>  <!-- MESH.EXE -->
+	  <item key="MESH1_OUT" caption="MESH1_OUT" path="\MESH1\MESH1_OUT" type="OUT" show="1" code="34" note=""/><!-- MESH.LIS -->
+    </submodule>
+	<submodule key="MESH2" caption="MESH2" path="\MESH2" show="1" note=""> 
+      <item key="MESH2_IN1" caption="MESH2_IN1" path="\MESH2\MESH2_IN1" type="IN" show="1" code="35" note=""/><!-- DMESHP.D -->
+	  <item key="MESH2_IN2" caption="MESH2_IN2" path="\MESH2\MESH2_IN2" type="IN" show="1" code="91" note=""/><!-- DMESHPF.D -->
+	  <item key="INR_IN" caption="INR_IN**" path="\MESH2\INR_IN**" type="IN" show="1" code="36" note=""/><!-- ROW**.PRE -->
+	  <item key="MESH2_RUN" caption="MESH2_RUN" path="\MESH2\MESH2_RUN.EXE" type="EXE" show="1" code="37" note=""/><!-- MESHP.EXE -->
+	  <item key="MESH2_RUN1" caption="MESH2_RUN1" path="\MESH2\MESH2_RUN1.EXE" type="EXE" show="1" code="92" note=""/><!-- MESHPF.EXE -->
+	  <item key="MESH2_OUT" caption="MESH2_OUT" path="\MESH2\MESH2_OUT" type="OUT" show="0" code="38" note=""/><!-- MESHP.LIS -->
+	  <submodule key="S0_MESH" caption="S0_MESH" path="\S0_MESH" show="1" note=""> 
+		<item key="S0M_IN1" caption="S0M_IN1" path="\MESH2\S0_MESH\S0M_IN1" type="IN" show="1" code="70" note=""/> <!-- VIGV1.D --> 
+		<item key="S0M_IN2" caption="S0M_IN2" path="\MESH2\S0_MESH\S0M_IN2" type="IN" show="1" code="70" note=""/> <!-- VIGV2.D --> 
+		<item key="S0M_RUN" caption="S0M_RUN" path="\MESH2\S0_MESH\S0M_RUN.EXE" type="EXE" show="1" code="74" note=""/> <!-- PLAN.EXE --> 
+	  </submodule>
+    </submodule>	
+	<submodule key="3D_RUN" caption="3D_RUN" path="\3D_RUN" show="1" note=""> 
+      <item key="PATH" caption="PATH" path="\3D_RUN\PATH" type="IN" show="1" code="39" note=""/><!-- PATH --> 
+	  <item key="PATHTIP" caption="PATHTIP" path="\3D_RUN\PATHTIP" type="IN" show="0" code="93" note=""/><!-- PATHTIP --> 
+	  <item key="TIP" caption="TIP" path="\3D_RUN\TIP.STA" type="IN" show="0" code="95" note=""/><!-- TIP.STA --> 
+	  <item key="3D_MESH" caption="3D_MESH**" path="\3D_RUN\3D_MESH**" type="IN" show="1" code="41" note=""/><!-- MESH**.PRE --> 
+	  <item key="3D_IN" caption="3D_IN**" path="\3D_RUN\3D_IN**" type="IN" show="1" code="40" note=""/><!-- IN**.DAT --> 
+	  <item key="3D_INLET" caption="3D_INLET**" path="\3D_RUN\3D_INLET**" type="IN" show="1" code="42" note=""/><!-- INLET**.PRE --> 
+	  <item key="3D_RUN" caption="3D_RUN" path="\3D_RUN\3D_RUN" type="EXE" show="1" code="43" note=""/><!-- DENTON.EXE --> 
+	  <item key="Dynamic Graph" caption="Dynamic Graph" path="\3D_RUN\Dynamic Graph" type="PIC" show="1" code="80" note=""/><!-- Dynamic Graph --> 
+	  <submodule key="COMPARE3" caption="COMPARE3" path="\3D_RUN\COMPARE3" show="1" note=""> 
+		<item key="PATH" caption="PATH" path="\3D_RUN\COMPARE3\PATH" type="IN" show="1" code="45" note=""/>
+		<item key="TRANS_RUN" caption="TRANS_RUN" path="\3D_RUN\COMPARE3\TRANS_RUN.EXE" type="EXE" show="1" code="71" note=""/>
+		<item key="PERF_OUT" caption="PERF_OUT**" path="\3D_RUN\COMPARE3\PERF_OUT**" type="OUT" show="1" code="77" note=""/>
+	  </submodule>
+	  <submodule key="S1" caption="S1" path="\S1" show="1" note=""> 
+		<item key="PATH" caption="PATH" path="\3D_RUN\S1\PATH" type="IN" show="1" code="46" note=""/>
+		<item key="S1_RUN" caption="TRANS_RUN" path="\3D_RUN\S1\S1_RUN.EXE" type="EXE" show="1" code="72" note=""/>
+		<item key="S1_IN" caption="S1_IN" path="\3D_RUN\S1\S1_IN" type="OUT" show="1" code="78" note=""/>
+	  </submodule>
+	  <submodule key="TECPLOT" caption="TECPLOT" path="\3D_RUN\TECPLOT" show="1" note=""> 
+		<item key="PATH" caption="PATH" path="\3D_RUN\TECPLOT\PATH" type="IN" show="1" code="47" note=""/>
+		<item key="TEC_RUN" caption="TEC_RUN" path="\3D_RUN\TECPLOT\TEC_RUN.EXE" type="EXE" show="1" code="73" note=""/>
+	  </submodule>
+    </submodule>  
+  </module>
+  
+  <module key="TURBO" caption="TURBO" path="\TURBO" show="1" note=""> 
+    <submodule key="S-S" caption="S-S" path="\S-S" show="1" note="">       
+    </submodule>
+	<submodule key="GMESH" caption="GMESH" path="\GMESH" show="1" note=""> 
+	</submodule>
+	<submodule key="SUBTURBO" caption="TURBO" path="\TURBO" show="1" note=""> 
+		<submodule key="PLTALL" caption="PLTALL" path="\PLTALL" show="1" note=""> 
+		</submodule>
+		<submodule key="TURBOPERF" caption="PERF" path="\PERF" show="1" note=""> 
+		</submodule>
+	</submodule>	
+  </module>
+  <module key="CADS1" caption="CADS1" path="\CADS1" show="1" note=""> 
+    <submodule key="BL" caption="BL" path="\BL" show="1" note="">       
+    </submodule>	
+  </module>
+  <module key="OFF" caption="OFF" path="\OFF" show="1" note=""> 
+    <submodule key="FLUT" caption="FLUT" path="\FLUT" show="1" note="">       
+    </submodule>	
+  </module>
+  <module key="NFTU" caption="NFTU" path="\NFTU" show="1" note=""> 
+    <submodule key="GRA" caption="GRA" path="\GRA" show="1" note="">       
+    </submodule>	
+  </module>
+  <module key="MISES" caption="MISES" path="\MISES" show="1" note=""> 
+    	
+  </module>
+  <module key="PERF" caption="PERF" path="\PERF" show="1" note=""> 
+    <submodule key="DPERF" caption="DPERF" path="\DPERF" show="1" note="">       
+    </submodule>	
+  </module>
+  <module key="DISTOR" caption="DISTOR" path="\DISTOR" show="1" note=""> 
+    	
+  </module>
+  <module key="CFD" caption="CFD" path="\CFD" show="1" note=""> 
+    <submodule key="NUMECA" caption="NUMECA" path="\NUMECA" show="1" note="">       
+    </submodule>
+	<submodule key="FLUENT" caption="FLUENT" path="\FLUENT" show="1" note="">       
+    </submodule>
+	<submodule key="TASCFLOW" caption="TASCFLOW" path="\TASCFLOW" show="1" note="">       
+    </submodule>	
+  </module>
+</FileMapping>

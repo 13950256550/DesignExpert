@@ -1,0 +1,57 @@
+package com.xianhe.mis.module.module1D.constant;
+
+public class CheckQuestion1Constant {
+	public static String 转速度或第一级转子叶尖切线速度_RPM = "转速度(>=800)或第一级转子叶尖切线速度 RPM";
+	public static String K1234 = "K==1 或  K==3  或  K==4 且  K12==2";
+	public static String 总压比_PR = "总压比 PR";
+	public static String 流量_G = "流量 G";
+	public static String 进口总压_PO = "进口总压  PO";
+	public static String 进口总温_TO = "进口总温  TO";
+	public static String 绝热效率_EFF = "绝热效率 EFF";
+	public static String 可填0 = "(可填0.0,由程序算)";
+	public static String 级数_ISTAGE = "级数 ISTAGE";
+	public static String 功率存储系数KH = "功率存储系数KH";
+	public static String 流路输入标识KPATH = "流路输入标识KPATH";
+	public static String 叶型标识KF = "叶型标识KF";
+	public static String 压气机类型KC = "压气机类型 KC";
+	public static String 进口段总压回复SIGO = "进口段总压回复 SIGO";
+	public static String 进口导叶总压回复SIGV = "进口段总压回复 SIGV";
+	public static String 压气机出口 = "压气机出口";
+	public static String 外径DTK = "外径 DTK";
+	public static String 内径DHK = "内径 DHK";
+	public static String 一转进气流角ALFO = "一转进气流角 ALFO";
+	public static String 功率储备系数 = "功率储备系数 ";
+	public static String 第一级KH1 = "第一级 KH1";
+	public static String 逐级递减DKH = "逐级递减 DKH";
+	public static String 最小值KHMIN = "最小值 KHMIN";
+	public static String 流量缩放系数KG = "流量缩放系数 KG";
+	public static String 一转展旋比ASP1 = "一转展旋比 ASP1";
+	public static String 最后级展旋比ASPK = "最后级展旋比 ASPK";
+	public static String 最大扰度相对位置 = "最大扰度相对位置:";
+	public static String 进口导叶ABV = "进口导叶 ABV";
+	public static String 转子叶片ABR = "转子叶片 ABR";
+	public static String 静子叶片ABS = "静子叶片 ABS";
+	public static String 进口导叶 = "进口导叶:";
+	public static String 尖根弦长比BTHV = "尖根弦长比 BTHV";
+	public static String 展弦比ASPV = "展弦比 ASPV";
+	public static String 稠度BTV = "稠度 BTV";
+	public static String 前压汽机 = "前压汽机(机组,转接段)";
+	public static String 出口内直径DHO = "出口内直径 DHO";
+	public static String 出口外直径BTO = "出口外直径 BTO";
+	public static String 一转尖根弦长比BTH1 = "一转尖根弦长比 BTH1";
+	public static String λ085填10 = "λ≯0.85,填1.0";
+	public static String 进口导叶最大相对厚度CMV = "进口导叶最大相对厚度 CMV";
+	public static String 相对轴向间隙 = "相对轴向间隙:";
+	public static String 第一级E1 = "第一级 E1";
+	public static String 最后级与第一级差DE = "最后级与第一级差 DE";
+	public static String 材料密度 = "材料密度:";
+	public static String 转件DENR = "转件 DENR";
+	public static String 静件DENS = "静件 DENS";
+	public static String 叶片DENB = "叶片 DENB";
+	public static String 转子根许用应力DRES = "转子根许用应力 DRES";
+	public static String 最后静子出口气流角ALFK = "最后静子出口气流角 ALFK";
+	public static String 本气压机前已有压比PRO = "本气压机前已有压比 PRO";
+	public static String 最小弦比HORDA = "最小弦比 HORDA";
+	
+	public static String K1或K3或K4且K122 = "(K==1 或  K==3  或  K==4 且  K12==2)";
+}
