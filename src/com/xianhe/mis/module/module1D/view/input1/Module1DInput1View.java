@@ -14,10 +14,10 @@ import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+import com.xianhe.core.common.EnvReadWriteUtil;
 import com.xianhe.mis.CommonPanel;
 import com.xianhe.mis.module.module1D.constant.CheckQuestion1Constant;
 import com.xianhe.mis.module.module1D.constant.DesignProblemConstant;
-import com.xianhe.mis.module.module1D.readwritefile.PathUtil;
 import com.xianhe.mis.module.module1D.readwritefile.ReadInputFileData;
 import com.xianhe.mis.module.module1D.readwritefile.WriteDataToFile;
 import com.xianhe.mis.module.module1D.view.output.Module1DOutputView;
@@ -35,8 +35,10 @@ public class Module1DInput1View extends BorderPane{
 	private static List<CommonPanel> panels = null;
 	public static TextArea textArea = null;
 	public static TabPane tabPane2 = null;
+	private String fileName = null;
 	
-	public Module1DInput1View(){
+	public Module1DInput1View(String fileName){
+		this.fileName = fileName;
 		panels = new ArrayList<CommonPanel>();
 		TabPane tabPane = new TabPane();
 		setCenter(tabPane);
@@ -50,7 +52,7 @@ public class Module1DInput1View extends BorderPane{
 		StringBuilder sb = new StringBuilder();
 		BufferedReader in = null;
 		try {
-			in = new BufferedReader(new InputStreamReader(new FileInputStream(PathUtil.get1D_in1File()),"gbk"));
+			in = new BufferedReader(new InputStreamReader(new FileInputStream(EnvReadWriteUtil.getFile(this.fileName)),"gbk"));
 			String line=null;
 			while ((line=in.readLine())!=null) {
 				sb.append(line).append("\n");

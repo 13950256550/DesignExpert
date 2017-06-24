@@ -13,7 +13,6 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 import com.xianhe.mis.MainFrame;
-import com.xianhe.mis.module.module1D.readwritefile.PathUtil;
 
 import javafx.scene.Node;
 import javafx.scene.control.TreeItem;
@@ -28,6 +27,7 @@ public class Module {
 	static{
 		map.put("81", "com.xianhe.mis.module.module1D.view.input1.Module1DInput1View");
 		map.put("83", "com.xianhe.mis.controller.Module1DController");
+		map.put("84", "com.xianhe.mis.module.module1D.view.output.Module1DOutputView");
 	}
 	
 	private String key;
@@ -212,8 +212,8 @@ public class Module {
 	public static Module getRootModule(){
 		Document document = getMenuDocument();
 		String[] array = null;
-		if(PathUtil.getWorkPath().contains("/")){
-			array = PathUtil.getWorkPath().split("/");
+		if(EnvReadWriteUtil.getWorkPath().contains("/")){
+			array = EnvReadWriteUtil.getWorkPath().split("/");
 		}
 		Module root = new Module("root",array[array.length-1],"","1","");
 		
@@ -265,8 +265,8 @@ public class Module {
 	public static TreeView<Module> getMenus(){
 		Document document = getMenuDocument();
 		String[] array = null;
-		if(PathUtil.getWorkPath().contains("/")){
-			array = PathUtil.getWorkPath().split("/");
+		if(EnvReadWriteUtil.getWorkPath().contains("/")){
+			array = EnvReadWriteUtil.getWorkPath().split("/");
 		}
 		Module root = new Module("root",array[array.length-1],"","1","");
 		

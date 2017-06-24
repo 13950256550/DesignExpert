@@ -6,10 +6,12 @@ import java.util.List;
 
 import org.jfree.data.xy.XYDataItem;
 
+import com.xianhe.core.common.EnvReadWriteUtil;
+
 import javafx.scene.chart.XYChart.Data;
 
 public class ReadOutputFileData {
-	public static String path = PathUtil.getWorkPath();
+	public static String path = EnvReadWriteUtil.getWorkPath();
 	
 	public static void main(String[] args) {
 		/*

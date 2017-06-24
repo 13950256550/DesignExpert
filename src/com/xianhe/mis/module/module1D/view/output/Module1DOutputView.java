@@ -10,7 +10,7 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 
-import com.xianhe.mis.module.module1D.readwritefile.PathUtil;
+import com.xianhe.core.common.EnvReadWriteUtil;
 
 import javafx.geometry.Side;
 import javafx.scene.control.ScrollPane;
@@ -21,8 +21,10 @@ import javafx.scene.layout.BorderPane;
 
 public class Module1DOutputView extends BorderPane{
 	public static Logger logger = Logger.getLogger(Module1DOutputView.class);
+	private String fileName = null;
 	
-	public Module1DOutputView(){
+	public Module1DOutputView(String fileName){
+		this.fileName = fileName;
 		TabPane tabPane = new TabPane();
 		setCenter(tabPane);
 		tabPane.setSide(Side.BOTTOM);
@@ -46,7 +48,7 @@ public class Module1DOutputView extends BorderPane{
 		scrollPane.setContent(textArea);
 		
 		try {
-			BufferedReader reader=new BufferedReader(new InputStreamReader(new FileInputStream(PathUtil.get1D_outFile()),"gbk"));
+			BufferedReader reader=new BufferedReader(new InputStreamReader(new FileInputStream(EnvReadWriteUtil.getFile(this.fileName)),"gbk"));
 			StringBuilder sb = new StringBuilder();
 			String line=null;
 			logger.info(new Date());

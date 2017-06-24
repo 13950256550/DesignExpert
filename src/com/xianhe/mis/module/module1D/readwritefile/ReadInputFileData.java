@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.xianhe.core.common.EnvReadWriteUtil;
 import com.xianhe.mis.module.module1D.constant.AspectRatioCalculateConstant;
 import com.xianhe.mis.module.module1D.constant.CheckQuestion1Constant;
 import com.xianhe.mis.module.module1D.constant.ControlVariableConstant;
@@ -46,7 +47,7 @@ public class ReadInputFileData {
 	}
 	
 	public static List<String> readFile(){
-		File file = PathUtil.get1D_in1File();
+		File file = EnvReadWriteUtil.getFile("/1D/1d_in1");
 		return readFile(file);
 	}
 	
