@@ -10,6 +10,7 @@ import com.xianhe.core.common.RowConfig;
 import com.xianhe.mis.CommonPanel;
 import com.xianhe.mis.input.FormPanel;
 import com.xianhe.mis.module.module1D.constant.AspectRatioCalculateConstant;
+import com.xianhe.mis.module.module1D.constant.ControlVariableConstant;
 import com.xianhe.mis.module.module1D.readwritefile.ReadInputFileData;
 
 public class AspectRatioCalculatePanel extends CommonPanel {
@@ -19,6 +20,7 @@ public class AspectRatioCalculatePanel extends CommonPanel {
 		
 		panel = getFormPanel2();
 		addFormPanel(panel);
+		panel.setInputChangeListener(AspectRatioCalculateConstant.喘振裕度输入NCU);
 		
 		panel = getFormPanel3();
 		addFormPanel(panel);
@@ -52,7 +54,7 @@ public class AspectRatioCalculatePanel extends CommonPanel {
 	public FormPanel getFormPanel2(){
 		List<RowConfig> rowConfigs = new ArrayList<RowConfig>();
 		List<InputItemConfig> inputItemConfigs = new ArrayList<InputItemConfig>();
-		InputItemConfig inputItemConfig = new InputItemConfig(AspectRatioCalculateConstant.喘振裕度输入NCU);
+		InputItemConfig inputItemConfig = new InputItemConfig(AspectRatioCalculateConstant.喘振裕度输入NCU,new int[]{150,150});
 		inputItemConfigs.add(inputItemConfig);
 		inputItemConfig = new InputItemConfig(AspectRatioCalculateConstant.输入不输用程序值,InputItemType.fake,new int[]{300});
 		inputItemConfigs.add(inputItemConfig);

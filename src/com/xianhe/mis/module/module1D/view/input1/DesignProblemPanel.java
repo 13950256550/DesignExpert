@@ -17,7 +17,7 @@ public class DesignProblemPanel extends CommonPanel {
 		addFormPanel(panel);
 		
 		panel = getFormPanel2();
-		addFormPanel(panel,DesignProblemConstant.流路输入标识KPATH);
+		addFormPanel(panel,DesignProblemConstant.KPATH流路输入标识);
 		
 		panel = getFormPanel3();
 		addFormPanel(panel);
@@ -29,38 +29,38 @@ public class DesignProblemPanel extends CommonPanel {
 	public FormPanel getFormPanel1(){
 		List<RowConfig> rowConfigs = new ArrayList<RowConfig>();
 		List<InputItemConfig> inputItemConfigs = new ArrayList<InputItemConfig>();
-		InputItemConfig inputItemConfig = new InputItemConfig(DesignProblemConstant.转速或第一级转子叶尖切线速度RPM);
+		InputItemConfig inputItemConfig = new InputItemConfig(DesignProblemConstant.RPM转速或第一级转子叶尖切线速度);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.进口总压PO);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.PO进口总压);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.进口总温TO);
-		inputItemConfigs.add(inputItemConfig);
-		rowConfigs.add(new RowConfig(inputItemConfigs));
-		
-		inputItemConfigs = new ArrayList<InputItemConfig>();
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.总压比PR);
-		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.流量G);
-		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.绝热效率EFF);
-		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.级数ISTAGE);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.TO进口总温);
 		inputItemConfigs.add(inputItemConfig);
 		rowConfigs.add(new RowConfig(inputItemConfigs));
 		
 		inputItemConfigs = new ArrayList<InputItemConfig>();
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.设计压比提高量KH);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.PR总压比);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.叶型标识KF);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.G流量);
+		inputItemConfigs.add(inputItemConfig);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.EFF绝热效率);
+		inputItemConfigs.add(inputItemConfig);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.ISTAGE级数);
 		inputItemConfigs.add(inputItemConfig);
 		rowConfigs.add(new RowConfig(inputItemConfigs));
 		
 		inputItemConfigs = new ArrayList<InputItemConfig>();
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.压气机类型KC);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.KH设计压比提高量);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.进口段总压恢复SIGO);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.KF叶型标识);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.进口导叶总压恢复SIGV);
+		rowConfigs.add(new RowConfig(inputItemConfigs));
+		
+		inputItemConfigs = new ArrayList<InputItemConfig>();
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.KC压气机类型);
+		inputItemConfigs.add(inputItemConfig);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.SIGO进口段总压恢复);
+		inputItemConfigs.add(inputItemConfig);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.SIGV进口导叶总压恢复);
 		inputItemConfigs.add(inputItemConfig);
 		rowConfigs.add(new RowConfig(inputItemConfigs));
 		
@@ -71,20 +71,15 @@ public class DesignProblemPanel extends CommonPanel {
 	public FormPanel getFormPanel2(){
 		List<RowConfig> rowConfigs = new ArrayList<RowConfig>();
 		List<InputItemConfig> inputItemConfigs = new ArrayList<InputItemConfig>();
-		InputItemConfig inputItemConfig = new InputItemConfig(DesignProblemConstant.流路输入标识KPATH,InputItemType.combobox,new int[]{150,200});
+		InputItemConfig inputItemConfig = new InputItemConfig(DesignProblemConstant.KPATH流路输入标识,InputItemType.combobox,new int[]{150,200});
 		inputItemConfigs.add(inputItemConfig);
 		rowConfigs.add(new RowConfig(inputItemConfigs));
 		
 		inputItemConfigs = new ArrayList<InputItemConfig>();
-		inputItemConfig = new InputItemConfig("grid1",InputItemType.grid);
+		inputItemConfig = new InputItemConfig("DesignProblemGrid1",InputItemType.grid);
 		List<String> rowName = new ArrayList<String>();
         rowName.add("1");
         rowName.add("2");
-        rowName.add("3");
-        rowName.add("4");
-        rowName.add("5");
-        rowName.add("6");
-        rowName.add("7");
         inputItemConfig.setRowNames(rowName);
         
         List<String> colName = new ArrayList<String>();
@@ -110,102 +105,102 @@ public class DesignProblemPanel extends CommonPanel {
 	public FormPanel getFormPanel3(){
 		List<RowConfig> rowConfigs = new ArrayList<RowConfig>();
 		List<InputItemConfig> inputItemConfigs = new ArrayList<InputItemConfig>();
-		InputItemConfig inputItemConfig = new InputItemConfig(DesignProblemConstant.本压气机前已有压比PRO);
+		InputItemConfig inputItemConfig = new InputItemConfig(DesignProblemConstant.PRO本压气机前已有压比);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.流量缩放系数KG);
-		inputItemConfigs.add(inputItemConfig);
-		rowConfigs.add(new RowConfig(inputItemConfigs));
-		
-		inputItemConfigs = new ArrayList<InputItemConfig>();
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.一级进轴速度VA1);
-		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.中段轴速度VAM);
-		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.出口轴速VAC);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.KG流量缩放系数);
 		inputItemConfigs.add(inputItemConfig);
 		rowConfigs.add(new RowConfig(inputItemConfigs));
 		
 		inputItemConfigs = new ArrayList<InputItemConfig>();
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.一转进气流角ALF1);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.VA1一级进轴速度);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.第中级反力度OMGN);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.VAM中段轴速度);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.第中级后反力度增量DOMG);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.VAC出口轴速);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.最后静子出口气流角ALFK);
+		rowConfigs.add(new RowConfig(inputItemConfigs));
+		
+		inputItemConfigs = new ArrayList<InputItemConfig>();
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.ALF1一转进气流角);
+		inputItemConfigs.add(inputItemConfig);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.OMGN第中级反力度);
+		inputItemConfigs.add(inputItemConfig);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.DOMG第中级后反力度增量);
+		inputItemConfigs.add(inputItemConfig);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.ALFK最后静子出口气流角);
 		inputItemConfigs.add(inputItemConfig);
 		rowConfigs.add(new RowConfig(inputItemConfigs));
 		
 		inputItemConfigs = new ArrayList<InputItemConfig>();
 		inputItemConfig = new InputItemConfig(DesignProblemConstant.加功因子,InputItemType.fake);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.第一级HZ1);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.HZ1第一级);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.平均级HZM);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.HZM平均级);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.最后级HZK);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.HZK最后级);
 		inputItemConfigs.add(inputItemConfig);
 		rowConfigs.add(new RowConfig(inputItemConfigs));
 		
 		inputItemConfigs = new ArrayList<InputItemConfig>();
 		inputItemConfig = new InputItemConfig(DesignProblemConstant.功率储备系数,InputItemType.fake);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.第一级KH1);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.KH1第一级);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.逐级递减值DKH);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.DKH逐级递减值);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.最小值KHMIN);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.KHMIN最小值);
 		inputItemConfigs.add(inputItemConfig);
 		rowConfigs.add(new RowConfig(inputItemConfigs));
 		
 		inputItemConfigs = new ArrayList<InputItemConfig>();
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.一转展弦比ASP1);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.ASP1一转展弦比);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.一转尖根弦长比BTH1);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.BTH1一转尖根弦长比);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.末转展弦比ASPK);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.ASPK末转展弦比);
 		inputItemConfigs.add(inputItemConfig);
 		rowConfigs.add(new RowConfig(inputItemConfigs));
 		
 		inputItemConfigs = new ArrayList<InputItemConfig>();
 		inputItemConfig = new InputItemConfig(DesignProblemConstant.最大扰度相对位置,InputItemType.fake);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.进口导叶ABV);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.ABV进口导叶);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.转子叶片ABR);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.ABR转子叶片);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.静子叶片ABS);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.ABS静子叶片);
 		inputItemConfigs.add(inputItemConfig);
 		rowConfigs.add(new RowConfig(inputItemConfigs));
 		
 		inputItemConfigs = new ArrayList<InputItemConfig>();
 		inputItemConfig = new InputItemConfig(DesignProblemConstant.进口导叶,InputItemType.fake);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.尖根弦长比BTHV);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.BTHV尖根弦长比);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.展弦比ASPV);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.ASPV展弦比);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.稠度BTV);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.BTV稠度);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.进口导叶最大相对厚度CMV);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.CMV进口导叶最大相对厚度);
 		inputItemConfigs.add(inputItemConfig);
 		rowConfigs.add(new RowConfig(inputItemConfigs));
 		
 		inputItemConfigs = new ArrayList<InputItemConfig>();
 		inputItemConfig = new InputItemConfig(DesignProblemConstant.前压气机机组转接段,InputItemType.fake);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.出口内直径DHO);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.DHO出口内直径);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.出口外直径DTO);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.DTO出口外直径);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.最小弦长HORDA);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.HORDA最小弦长);
 		inputItemConfigs.add(inputItemConfig);
 		rowConfigs.add(new RowConfig(inputItemConfigs));
 		
 		inputItemConfigs = new ArrayList<InputItemConfig>();
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.第一级E1);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.E1第一级);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.最后级与第一级差DE);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.DE最后级与第一级差);
 		inputItemConfigs.add(inputItemConfig);
 		rowConfigs.add(new RowConfig(inputItemConfigs));
 		
@@ -216,16 +211,16 @@ public class DesignProblemPanel extends CommonPanel {
 	public FormPanel getFormPanel4(){
 		List<RowConfig> rowConfigs = new ArrayList<RowConfig>();
 		List<InputItemConfig> inputItemConfigs = new ArrayList<InputItemConfig>();
-		InputItemConfig inputItemConfig = new InputItemConfig(DesignProblemConstant.转件DENR);
+		InputItemConfig inputItemConfig = new InputItemConfig(DesignProblemConstant.DENR转件);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.静件DENS);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.DENS静件);
 		inputItemConfigs.add(inputItemConfig);
 		rowConfigs.add(new RowConfig(inputItemConfigs));
 		
 		inputItemConfigs = new ArrayList<InputItemConfig>();
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.叶片DENB);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.DENB叶片);
 		inputItemConfigs.add(inputItemConfig);
-		inputItemConfig = new InputItemConfig(DesignProblemConstant.转子根许用应力DRES);
+		inputItemConfig = new InputItemConfig(DesignProblemConstant.DRES转子根许用应力);
 		inputItemConfigs.add(inputItemConfig);
 		rowConfigs.add(new RowConfig(inputItemConfigs));
 		

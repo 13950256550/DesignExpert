@@ -233,4 +233,9 @@ public class GridPanel extends InputPanel{
 			logger.info(map);
 		}
 	}
+
+	@Override
+	public void setReadonly(boolean flag) {
+		tableView.setDisable(flag);
+	}
 }

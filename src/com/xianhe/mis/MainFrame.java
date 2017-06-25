@@ -5,6 +5,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -14,6 +15,8 @@ import com.xianhe.core.common.Item;
 import com.xianhe.core.common.MenuItem;
 import com.xianhe.core.common.Module;
 import com.xianhe.mis.controller.Module1DController;
+import com.xianhe.mis.module.AppContext;
+import com.xianhe.mis.module.module1D.view.output.Module1DOutputView;
 
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
@@ -22,9 +25,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.ContextMenu;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseButton;
@@ -35,6 +40,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MainFrame extends Application implements ChangeListener<TreeItem <String>>,EventHandler<MouseEvent>{
+	public static Logger logger = Logger.getLogger(MainFrame.class);
 	private static Document document = null;
 	private TabPane tabPane = new TabPane();
 	private  ContextMenu cm = null; 
@@ -93,19 +99,6 @@ public class MainFrame extends Application implements ChangeListener<TreeItem <S
 		splitPane.setDividerPositions(0.1f);
 		primaryStage.show();
 	}
-	
-	public TreeView<MenuItem> getTree(){
-		TreeItem<MenuItem> rootItem = new TreeItem<MenuItem> (new MenuItem("¹¤×÷Ä¿Â¼"));
-        rootItem.setExpanded(true);
-        for (int i = 1; i < 6; i++) {
-            TreeItem<MenuItem> item = new TreeItem<MenuItem> (new MenuItem("Message"+i,"command"+i,"","")); 
-            rootItem.getChildren().add(item);
-        }        
-        TreeView<MenuItem> tree = new TreeView<MenuItem> (rootItem);
-        tree.setOnMouseClicked(this);
-        
-        return tree;
-	}
 
 	@Override
 	public void changed(ObservableValue<? extends TreeItem<String>> observable, TreeItem<String> oldValue,TreeItem<String> newValue) {
@@ -116,7 +109,6 @@ public class MainFrame extends Application implements ChangeListener<TreeItem <S
 
 	@Override
 	public void handle(MouseEvent event) {
-		
 		if(event.getClickCount()==2){
 			TreeView<Module> tree = (TreeView<Module>)event.getSource();
 			if(tree.getSelectionModel().getSelectedItem().isLeaf()){
@@ -127,7 +119,7 @@ public class MainFrame extends Application implements ChangeListener<TreeItem <S
 				}else if(item.getType().equals("OUT")){
 					handleShowView(item.getCaption(),Module.map.get(item.getCode()),item.getPath());
 				}else if(item.getType().equals("EXE")){
-					handleCommand(item.getCode());
+					handleCommand(item.getCaption(),Module.map.get(item.getCode()),item.getPath(),item.getCode());
 				}
 			}
 		}else if(event.getButton()==MouseButton.SECONDARY){
@@ -240,8 +232,45 @@ public class MainFrame extends Application implements ChangeListener<TreeItem <S
 		tab.setContent(panel);
 	}
 	
-	public void handleCommand(String code){
-		new Module1DController().calculate();
+	public void handleCommand(String title,String classname,String path,String code){
+		Tab tab = null;
+		for(Tab aTab :tabPane.getTabs()){
+			if(title!=null && title.equals(aTab.getText())){
+				tab = aTab;
+				break;
+			}
+		}
+		if(tab==null){
+			tab = new Tab();
+			tab.setText(title);
+			tabPane.getTabs().add(tab);
+		}
+		tabPane.getSelectionModel().select(tab);
+		
+		ScrollPane scrollPane = new ScrollPane();
+		scrollPane.setFitToWidth(true);
+		scrollPane.setFitToHeight(true);
+		tab.setContent(scrollPane);
+		
+		TextArea textArea = new TextArea();
+		scrollPane.setContent(textArea);
+		
+		tab.setContent(scrollPane);
+		
+		
+		Thread thread = new Thread(){
+			@Override
+			public void run() {
+				new Module1DController().calculate(textArea);
+			}
+		};
+		
+		thread.start();
+		
+		tab.setOnClosed(event->{
+			thread.stop();
+		});
+		//new Module1DController().calculate(textArea);
 	}
 	/*
 	public void handleCommand(String title,String classname,String command){

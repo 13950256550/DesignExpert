@@ -42,4 +42,22 @@ public class FormPanel extends VBox {
 			rowPanel.getValueIntoMap(map);
 		}
 	}
+	
+	public void setInputChangeListener(String id){
+		for(RowPanel rowPanel:rowPanels){
+			rowPanel.setInputChangeListener(id);
+		}
+	}
+	
+	public void setReadonly(boolean flag){
+		for(RowPanel rowPanel:rowPanels){
+			rowPanel.setReadonly(flag);
+		}
+	}
+	
+	public void setReadonly(String id,boolean flag){
+		for(RowPanel rowPanel:rowPanels){
+			rowPanel.setReadonly(id,flag);
+		}
+	}
 }

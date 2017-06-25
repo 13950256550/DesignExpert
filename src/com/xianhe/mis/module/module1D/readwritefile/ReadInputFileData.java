@@ -12,7 +12,7 @@ import java.util.Map;
 
 import com.xianhe.core.common.EnvReadWriteUtil;
 import com.xianhe.mis.module.module1D.constant.AspectRatioCalculateConstant;
-import com.xianhe.mis.module.module1D.constant.CheckQuestion1Constant;
+import com.xianhe.mis.module.module1D.constant.CheckQuestionConstant;
 import com.xianhe.mis.module.module1D.constant.ControlVariableConstant;
 import com.xianhe.mis.module.module1D.constant.DesignProblemConstant;
 import com.xianhe.mis.module.module1D.constant.FeaturesCalculateConstant;
@@ -136,19 +136,19 @@ public class ReadInputFileData {
 		row++;
 		arrayString = list.get(row).split(" ");
 		if(arrayString.length==13){
-			result.put(CheckQuestion1Constant.转速度或第一级转子叶尖切线速度_RPM, arrayString[0]);
-			result.put(CheckQuestion1Constant.总压比_PR, arrayString[1]);
-			result.put(CheckQuestion1Constant.流量_G, arrayString[2]);
-			result.put(CheckQuestion1Constant.进口总压_PO, arrayString[3]);
-			result.put(CheckQuestion1Constant.进口总温_TO, arrayString[4]);
-			result.put(CheckQuestion1Constant.绝热效率_EFF, arrayString[5]);
-			result.put(CheckQuestion1Constant.功率存储系数KH, arrayString[6]);
-			result.put(CheckQuestion1Constant.级数_ISTAGE, arrayString[7]);
-			result.put(CheckQuestion1Constant.流路输入标识KPATH, arrayString[8]);
-			result.put(CheckQuestion1Constant.叶型标识KF, arrayString[9]);
-			result.put(CheckQuestion1Constant.压气机类型KC, arrayString[10]);
-			result.put(CheckQuestion1Constant.进口段总压回复SIGO, arrayString[11]);
-			result.put(CheckQuestion1Constant.进口导叶总压回复SIGV, arrayString[12]);
+			result.put(CheckQuestionConstant.RPM转速度或第一级转子叶尖切线速度, arrayString[0]);
+			result.put(CheckQuestionConstant.PR总压比, arrayString[1]);
+			result.put(CheckQuestionConstant.G流量, arrayString[2]);
+			result.put(CheckQuestionConstant.PO进口总压, arrayString[3]);
+			result.put(CheckQuestionConstant.TO进口总温, arrayString[4]);
+			result.put(CheckQuestionConstant.EFF绝热效率, arrayString[5]);
+			result.put(CheckQuestionConstant.KH功率存储系数, arrayString[6]);
+			result.put(CheckQuestionConstant.ISTAGE级数, arrayString[7]);
+			result.put(CheckQuestionConstant.KPATH流路输入标识, arrayString[8]);
+			result.put(CheckQuestionConstant.KF叶型标识, arrayString[9]);
+			result.put(CheckQuestionConstant.KC压气机类型, arrayString[10]);
+			result.put(CheckQuestionConstant.SIGO进口段总压回复, arrayString[11]);
+			result.put(CheckQuestionConstant.SIGV进口导叶总压回复, arrayString[12]);
 		}else{
 			System.out.println(list.get(row));
 			System.out.println("解析第"+row+"行报错,希望两个字段，实际:"+arrayString.length);
@@ -156,11 +156,11 @@ public class ReadInputFileData {
 		
 		row++;
 		arrayString = list.get(row).split(" ");
-		result.put(CheckQuestion1Constant.外径DTK, arrayString[arrayString.length-1]);
+		result.put(CheckQuestionConstant.DTK外径, arrayString[arrayString.length-1]);
 		
 		row++;
 		arrayString = list.get(row).split(" ");
-		result.put(CheckQuestion1Constant.内径DHK, arrayString[arrayString.length-1]);
+		result.put(CheckQuestionConstant.DHK内径, arrayString[arrayString.length-1]);
 		
 		row++;
 		row++;
@@ -179,14 +179,14 @@ public class ReadInputFileData {
 		row++;
 		
 		row++;
-		result.put(CheckQuestion1Constant.一转进气流角ALFO, list.get(row));
+		result.put(CheckQuestionConstant.ALFO一转进气流角, list.get(row));
 		
 		row++;
 		arrayString = list.get(row).split(" ");
 		if(arrayString.length==3){
-			result.put(CheckQuestion1Constant.第一级KH1, arrayString[0]);
-			result.put(CheckQuestion1Constant.逐级递减DKH, arrayString[1]);
-			result.put(CheckQuestion1Constant.最小值KHMIN, arrayString[2]);
+			result.put(CheckQuestionConstant.KH1第一级, arrayString[0]);
+			result.put(CheckQuestionConstant.DKH逐级递减, arrayString[1]);
+			result.put(CheckQuestionConstant.KHMIN最小值, arrayString[2]);
 		}else{
 			System.out.println(list.get(row));
 			System.out.println("解析第"+row+"行报错,希望两个字段，实际:"+arrayString.length);
@@ -195,18 +195,18 @@ public class ReadInputFileData {
 		row++;
 		arrayString = list.get(row).split(" ");
 		if(arrayString.length==12){
-			result.put(CheckQuestion1Constant.流量缩放系数KG, arrayString[0]);
-			result.put(CheckQuestion1Constant.一转展旋比ASP1, arrayString[1]);
-			result.put(CheckQuestion1Constant.最后级展旋比ASPK, arrayString[2]);
-			result.put(CheckQuestion1Constant.进口导叶ABV, arrayString[3]);
-			result.put(CheckQuestion1Constant.转子叶片ABR, arrayString[4]);
-			result.put(CheckQuestion1Constant.静子叶片ABS, arrayString[5]);
-			result.put(CheckQuestion1Constant.尖根弦长比BTHV, arrayString[6]);
-			result.put(CheckQuestion1Constant.展弦比ASPV, arrayString[7]);
-			result.put(CheckQuestion1Constant.稠度BTV, arrayString[8]);
-			result.put(CheckQuestion1Constant.出口内直径DHO, arrayString[9]);
-			result.put(CheckQuestion1Constant.出口外直径DTO, arrayString[10]);
-			result.put(CheckQuestion1Constant.一转尖根弦长比BTH1, arrayString[11]);
+			result.put(CheckQuestionConstant.KG流量缩放系数, arrayString[0]);
+			result.put(CheckQuestionConstant.ASP1一转展旋比, arrayString[1]);
+			result.put(CheckQuestionConstant.ASPK最后级展旋比, arrayString[2]);
+			result.put(CheckQuestionConstant.ABV进口导叶, arrayString[3]);
+			result.put(CheckQuestionConstant.ABR转子叶片, arrayString[4]);
+			result.put(CheckQuestionConstant.ABS静子叶片, arrayString[5]);
+			result.put(CheckQuestionConstant.BTHV尖根弦长比, arrayString[6]);
+			result.put(CheckQuestionConstant.ASPV展弦比, arrayString[7]);
+			result.put(CheckQuestionConstant.BTV稠度, arrayString[8]);
+			result.put(CheckQuestionConstant.DHO出口内直径, arrayString[9]);
+			result.put(CheckQuestionConstant.DTO出口外直径, arrayString[10]);
+			result.put(CheckQuestionConstant.BTH1一转尖根弦长比, arrayString[11]);
 		}else{
 			System.out.println(list.get(row));
 			System.out.println("解析第"+row+"行报错,希望两个字段，实际:"+arrayString.length);
@@ -215,22 +215,22 @@ public class ReadInputFileData {
 		row++;
 		arrayString = list.get(row).split(" ");
 		if(arrayString.length==9){
-			result.put(CheckQuestion1Constant.第一级E1, arrayString[0]);
-			result.put(CheckQuestion1Constant.最后级与第一级差DE, arrayString[1]);
-			result.put(CheckQuestion1Constant.进口导叶最大相对厚度CMV, arrayString[2]);
-			result.put(CheckQuestion1Constant.转件DENR, arrayString[3]);
-			result.put(CheckQuestion1Constant.静件DENS, arrayString[4]);
-			result.put(CheckQuestion1Constant.叶片DENB, arrayString[5]);
-			result.put(CheckQuestion1Constant.转子根许用应力DRES, arrayString[6]);
-			result.put(CheckQuestion1Constant.最后静子出口气流角ALFK, arrayString[7]);
-			result.put(CheckQuestion1Constant.本气压机前已有压比PRO, arrayString[8]);
+			result.put(CheckQuestionConstant.E1第一级, arrayString[0]);
+			result.put(CheckQuestionConstant.DE最后级与第一级差, arrayString[1]);
+			result.put(CheckQuestionConstant.CMV进口导叶最大相对厚度, arrayString[2]);
+			result.put(CheckQuestionConstant.DENR转件, arrayString[3]);
+			result.put(CheckQuestionConstant.DENS静件, arrayString[4]);
+			result.put(CheckQuestionConstant.DENB叶片, arrayString[5]);
+			result.put(CheckQuestionConstant.DRES转子根许用应力, arrayString[6]);
+			result.put(CheckQuestionConstant.ALFK最后静子出口气流角, arrayString[7]);
+			result.put(CheckQuestionConstant.PRO本气压机前已有压比, arrayString[8]);
 		}else{
 			System.out.println(list.get(row));
 			System.out.println("解析第"+row+"行报错,希望两个字段，实际:"+arrayString.length);
 		}
 		
 		row++;
-		result.put(CheckQuestion1Constant.最小弦比HORDA, list.get(row));
+		result.put(CheckQuestionConstant.HORDA最小弦比, list.get(row));
 		
 		//特性计算1
 		row++;
@@ -409,19 +409,19 @@ public class ReadInputFileData {
 		//#1:RPM,PR,G,P0,T0,EFF,KH,ISTAGE,KPATH,KF,KC,SIG0,SIGV─13 个总参数
 		row++;
 		arrayString = spliteRow(list.get(row),13);
-		map.put(DesignProblemConstant.转速或第一级转子叶尖切线速度RPM, arrayString[0]);
-		map.put(DesignProblemConstant.总压比PR, arrayString[1]);
-		map.put(DesignProblemConstant.流量G, arrayString[2]);
-		map.put(DesignProblemConstant.进口总压PO, arrayString[3]);
-		map.put(DesignProblemConstant.进口总温TO, arrayString[4]);
-		map.put(DesignProblemConstant.绝热效率EFF, arrayString[5]);
-		map.put(DesignProblemConstant.逐级递减值DKH, arrayString[6]);
-		map.put(DesignProblemConstant.级数ISTAGE, arrayString[7]);
-		map.put(DesignProblemConstant.流路输入标识KPATH, arrayString[8]);
-		map.put(DesignProblemConstant.叶型标识KF, arrayString[9]);
-		map.put(DesignProblemConstant.压气机类型KC, arrayString[10]);
-		map.put(DesignProblemConstant.进口段总压恢复SIGO, arrayString[11]);
-		map.put(DesignProblemConstant.进口导叶总压恢复SIGV, arrayString[12]);
+		map.put(DesignProblemConstant.RPM转速或第一级转子叶尖切线速度, arrayString[0]);
+		map.put(DesignProblemConstant.PR总压比, arrayString[1]);
+		map.put(DesignProblemConstant.G流量, arrayString[2]);
+		map.put(DesignProblemConstant.PO进口总压, arrayString[3]);
+		map.put(DesignProblemConstant.TO进口总温, arrayString[4]);
+		map.put(DesignProblemConstant.EFF绝热效率, arrayString[5]);
+		map.put(DesignProblemConstant.DKH逐级递减值, arrayString[6]);
+		map.put(DesignProblemConstant.ISTAGE级数, arrayString[7]);
+		map.put(DesignProblemConstant.KPATH流路输入标识, arrayString[8]);
+		map.put(DesignProblemConstant.KF叶型标识, arrayString[9]);
+		map.put(DesignProblemConstant.KC压气机类型, arrayString[10]);
+		map.put(DesignProblemConstant.SIGO进口段总压恢复, arrayString[11]);
+		map.put(DesignProblemConstant.SIGV进口导叶总压恢复, arrayString[12]);
 		
 		//#2:DT1，D1，DH1，DTC，DMC，DHC，DTK，DFF，DHK─给定流路的9 个直径值
 		row++;
@@ -437,12 +437,12 @@ public class ReadInputFileData {
 		//#3A:DRT1(1:ISTAGE)，DCTK─KPATH=1 输入，否则不输;DRT1─各级转子进口外径;DCTK─压气机出口外径
 		//#3B:DRM1(1:ISTAGE)，DCMK─KPATH=2 时输入，否则不输;DRM1─各级转子进口平均直径，m;DCMK─压气机出口平均直径，m
 		//#3C:DRH1(1:ISTAGE)，DCHK,KPATH=3 输入，否则不输;DRH1─各级转子进口内径，m;DCHK─压气机出口内径，m
-		String kpath = (String)map.get(DesignProblemConstant.流路输入标识KPATH);
+		String kpath = (String)map.get(DesignProblemConstant.KPATH流路输入标识);
 		if(kpath!=null && !"0".equals(kpath)){
 			row++;
 			int ISTAGE = 0;
 			try {
-				ISTAGE = Integer.parseInt((String)map.get(DesignProblemConstant.级数ISTAGE));
+				ISTAGE = Integer.parseInt((String)map.get(DesignProblemConstant.ISTAGE级数));
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 			}
@@ -456,13 +456,13 @@ public class ReadInputFileData {
 			}
 			grid.add(rowList);
 			if("1".equals(kpath)){
-				map.put(DesignProblemConstant.压气机出口外径DCTK, arrayString[ISTAGE]);
+				map.put(DesignProblemConstant.DCTK压气机出口外径, arrayString[ISTAGE]);
 				map.put("DesignProblemDRT1Grid", grid);
 			}else if("2".equals(kpath)){
-				map.put(DesignProblemConstant.压气机出口平均直径DCMK, arrayString[ISTAGE]);
+				map.put(DesignProblemConstant.DCMK压气机出口平均直径, arrayString[ISTAGE]);
 				map.put("DesignProblemDRM1Grid", grid);
 			}else if("3".equals(kpath)){
-				map.put(DesignProblemConstant.压气机出口内径DCHK, arrayString[ISTAGE]);
+				map.put(DesignProblemConstant.DCHK压气机出口内径, arrayString[ISTAGE]);
 				map.put("DesignProblemDRH1Grid", grid);
 			}
 		}
@@ -470,52 +470,52 @@ public class ReadInputFileData {
 		//#6:VA1，VAM，VAC，ALF1，OMGN，DOMG，HZ1，HZM，HZK,KH1,DKH，KHMIN ─12 个气动参数
 		row++;
 		arrayString = spliteRow(list.get(row),12);
-		map.put(DesignProblemConstant.一级进轴速度VA1, arrayString[0]);
-		map.put(DesignProblemConstant.中段轴速度VAM, arrayString[1]);
-		map.put(DesignProblemConstant.出口轴速VAC, arrayString[2]);
-		map.put(DesignProblemConstant.一转进气流角ALF1, arrayString[3]);
-		map.put(DesignProblemConstant.第中级反力度OMGN, arrayString[4]);
-		map.put(DesignProblemConstant.第中级后反力度增量DOMG, arrayString[5]);
-		map.put(DesignProblemConstant.第一级HZ1, arrayString[6]);
-		map.put(DesignProblemConstant.平均级HZM, arrayString[7]);
-		map.put(DesignProblemConstant.最后级HZK, arrayString[8]);
-		map.put(DesignProblemConstant.第一级KH1, arrayString[9]);
-		map.put(DesignProblemConstant.逐级递减值DKH, arrayString[10]);
-		map.put(DesignProblemConstant.最小值KHMIN, arrayString[11]);
+		map.put(DesignProblemConstant.VA1一级进轴速度, arrayString[0]);
+		map.put(DesignProblemConstant.VAM中段轴速度, arrayString[1]);
+		map.put(DesignProblemConstant.VAC出口轴速, arrayString[2]);
+		map.put(DesignProblemConstant.ALF1一转进气流角, arrayString[3]);
+		map.put(DesignProblemConstant.OMGN第中级反力度, arrayString[4]);
+		map.put(DesignProblemConstant.DOMG第中级后反力度增量, arrayString[5]);
+		map.put(DesignProblemConstant.HZ1第一级, arrayString[6]);
+		map.put(DesignProblemConstant.HZM平均级, arrayString[7]);
+		map.put(DesignProblemConstant.HZK最后级, arrayString[8]);
+		map.put(DesignProblemConstant.KH1第一级, arrayString[9]);
+		map.put(DesignProblemConstant.DKH逐级递减值, arrayString[10]);
+		map.put(DesignProblemConstant.KHMIN最小值, arrayString[11]);
 		
 		
 		//#7:KG，ASP1，ASPK，ABV，ABR，ABS，BTHV，ASPV，BTV，DH0，DT0，BTH1─12 个几何参数
 		row++;
 		arrayString = spliteRow(list.get(row),12);
-		map.put(DesignProblemConstant.流量缩放系数KG, arrayString[0]);
-		map.put(DesignProblemConstant.一转展弦比ASP1, arrayString[1]);
-		map.put(DesignProblemConstant.末转展弦比ASPK, arrayString[2]);
-		map.put(DesignProblemConstant.进口导叶ABV, arrayString[3]);
-		map.put(DesignProblemConstant.转子叶片ABR, arrayString[4]);
-		map.put(DesignProblemConstant.静子叶片ABS, arrayString[5]);
-		map.put(DesignProblemConstant.尖根弦长比BTHV, arrayString[6]);
-		map.put(DesignProblemConstant.展弦比ASPV, arrayString[7]);
-		map.put(DesignProblemConstant.稠度BTV, arrayString[8]);
-		map.put(DesignProblemConstant.出口内直径DHO, arrayString[9]);
-		map.put(DesignProblemConstant.出口外直径DTO, arrayString[10]);
-		map.put(DesignProblemConstant.一转尖根弦长比BTH1, arrayString[11]);
+		map.put(DesignProblemConstant.KG流量缩放系数, arrayString[0]);
+		map.put(DesignProblemConstant.ASP1一转展弦比, arrayString[1]);
+		map.put(DesignProblemConstant.ASPK末转展弦比, arrayString[2]);
+		map.put(DesignProblemConstant.ABV进口导叶, arrayString[3]);
+		map.put(DesignProblemConstant.ABR转子叶片, arrayString[4]);
+		map.put(DesignProblemConstant.ABS静子叶片, arrayString[5]);
+		map.put(DesignProblemConstant.BTHV尖根弦长比, arrayString[6]);
+		map.put(DesignProblemConstant.ASPV展弦比, arrayString[7]);
+		map.put(DesignProblemConstant.BTV稠度, arrayString[8]);
+		map.put(DesignProblemConstant.DHO出口内直径, arrayString[9]);
+		map.put(DesignProblemConstant.DTO出口外直径, arrayString[10]);
+		map.put(DesignProblemConstant.BTH1一转尖根弦长比, arrayString[11]);
 		
 		//#8:E1，DE，CMV，DENR，DENS，DENB，DRES，ALFK，PR0─9 个参数
 		row++;
 		arrayString = spliteRow(list.get(row),12);
-		map.put(DesignProblemConstant.第一级E1, arrayString[0]);
-		map.put(DesignProblemConstant.最后级与第一级差DE, arrayString[1]);
-		map.put(DesignProblemConstant.进口导叶最大相对厚度CMV, arrayString[2]);
-		map.put(DesignProblemConstant.转件DENR, arrayString[3]);
-		map.put(DesignProblemConstant.静件DENS, arrayString[4]);
-		map.put(DesignProblemConstant.叶片DENB, arrayString[5]);
-		map.put(DesignProblemConstant.转子根许用应力DRES, arrayString[6]);
-		map.put(DesignProblemConstant.最后静子出口气流角ALFK, arrayString[7]);
-		map.put(DesignProblemConstant.本压气机前已有压比PRO, arrayString[8]);
+		map.put(DesignProblemConstant.E1第一级, arrayString[0]);
+		map.put(DesignProblemConstant.DE最后级与第一级差, arrayString[1]);
+		map.put(DesignProblemConstant.CMV进口导叶最大相对厚度, arrayString[2]);
+		map.put(DesignProblemConstant.DENR转件, arrayString[3]);
+		map.put(DesignProblemConstant.DENS静件, arrayString[4]);
+		map.put(DesignProblemConstant.DENB叶片, arrayString[5]);
+		map.put(DesignProblemConstant.DRES转子根许用应力, arrayString[6]);
+		map.put(DesignProblemConstant.ALFK最后静子出口气流角, arrayString[7]);
+		map.put(DesignProblemConstant.PRO本压气机前已有压比, arrayString[8]);
 
 		//#9:HORDA─最小弦长，m
 		row++;
-		map.put(DesignProblemConstant.最小弦长HORDA, list.get(row));
+		map.put(DesignProblemConstant.HORDA最小弦长, list.get(row));
 		
 		return row;
 	}
@@ -528,19 +528,19 @@ public class ReadInputFileData {
 		//#1:RPM,PR,G,P0,T0,EFF,KH,ISTAGE,KPATH,KF,KC,SIG0,SIGV─13 个总参数
 		row++;
 		arrayString = spliteRow(list.get(row),13);
-		map.put(CheckQuestion1Constant.转速度或第一级转子叶尖切线速度_RPM, arrayString[0]);
-		map.put(CheckQuestion1Constant.总压比_PR, arrayString[1]);
-		map.put(CheckQuestion1Constant.流量_G, arrayString[2]);
-		map.put(CheckQuestion1Constant.进口总压_PO, arrayString[3]);
-		map.put(CheckQuestion1Constant.进口总温_TO, arrayString[4]);
-		map.put(CheckQuestion1Constant.绝热效率_EFF, arrayString[5]);
-		map.put(CheckQuestion1Constant.功率存储系数KH, arrayString[6]);
-		map.put(CheckQuestion1Constant.级数_ISTAGE, arrayString[7]);
-		map.put(CheckQuestion1Constant.流路输入标识KPATH, arrayString[8]);
-		map.put(CheckQuestion1Constant.叶型标识KF, arrayString[9]);
-		map.put(CheckQuestion1Constant.压气机类型KC, arrayString[10]);
-		map.put(CheckQuestion1Constant.进口段总压回复SIGO, arrayString[11]);
-		map.put(CheckQuestion1Constant.进口导叶总压回复SIGV, arrayString[12]);
+		map.put(CheckQuestionConstant.RPM转速度或第一级转子叶尖切线速度, arrayString[0]);
+		map.put(CheckQuestionConstant.PR总压比, arrayString[1]);
+		map.put(CheckQuestionConstant.G流量, arrayString[2]);
+		map.put(CheckQuestionConstant.PO进口总压, arrayString[3]);
+		map.put(CheckQuestionConstant.TO进口总温, arrayString[4]);
+		map.put(CheckQuestionConstant.EFF绝热效率, arrayString[5]);
+		map.put(CheckQuestionConstant.KH功率存储系数, arrayString[6]);
+		map.put(CheckQuestionConstant.ISTAGE级数, arrayString[7]);
+		map.put(CheckQuestionConstant.KPATH流路输入标识, arrayString[8]);
+		map.put(CheckQuestionConstant.KF叶型标识, arrayString[9]);
+		map.put(CheckQuestionConstant.KC压气机类型, arrayString[10]);
+		map.put(CheckQuestionConstant.SIGO进口段总压回复, arrayString[11]);
+		map.put(CheckQuestionConstant.SIGV进口导叶总压回复, arrayString[12]);
 		
 		//准备工作,初始化两个grid,级数
 		grid1 = new ArrayList<List<String>>();
@@ -548,7 +548,7 @@ public class ReadInputFileData {
 		
 		int ISTAGE = 0;
 		try {
-			ISTAGE = Integer.parseInt((String)map.get(CheckQuestion1Constant.级数_ISTAGE));
+			ISTAGE = Integer.parseInt((String)map.get(CheckQuestionConstant.ISTAGE级数));
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
@@ -561,7 +561,7 @@ public class ReadInputFileData {
 			rowList.add(arrayString[i]);
 		}
 		grid1.add(rowList);
-		map.put(CheckQuestion1Constant.外径DTK, arrayString[ISTAGE]);
+		map.put(CheckQuestionConstant.DTK外径, arrayString[ISTAGE]);
 		
 		//#3:DH1(1:ISTAGE),DHK─内径，m
 		row++;
@@ -571,7 +571,7 @@ public class ReadInputFileData {
 			rowList.add(arrayString[i]);
 		}
 		grid1.add(rowList);
-		map.put(CheckQuestion1Constant.内径DHK, arrayString[ISTAGE]);
+		map.put(CheckQuestionConstant.DHK内径, arrayString[ISTAGE]);
 		
 		//#4:DT2(1:ISTAGE)─各级转子出口外径
 		row++;
@@ -704,47 +704,47 @@ public class ReadInputFileData {
 		
 		//#18:ALF0─第一级转子前绝对气流角
 		row++;
-		map.put(CheckQuestion1Constant.一转进气流角ALFO, list.get(row));
+		map.put(CheckQuestionConstant.ALFO一转进气流角, list.get(row));
 		
 		//#19:KH1，DKH，KHMIN─如已输入KHI 值，此三量均写0.0
 		row++;
 		arrayString = spliteRow(list.get(row),3);
-		map.put(CheckQuestion1Constant.第一级KH1, arrayString[0]);
-		map.put(CheckQuestion1Constant.逐级递减DKH, arrayString[1]);
-		map.put(CheckQuestion1Constant.最小值KHMIN, arrayString[2]);
+		map.put(CheckQuestionConstant.KH1第一级, arrayString[0]);
+		map.put(CheckQuestionConstant.DKH逐级递减, arrayString[1]);
+		map.put(CheckQuestionConstant.KHMIN最小值, arrayString[2]);
 		
 		//#20:KG，FF，FF，ABV，ABR，ABS，BTHV，ASPV，BTV，DH0，DT0，BTH1─12 个结构参数
 		row++;
 		arrayString = spliteRow(list.get(row),12);
-		map.put(CheckQuestion1Constant.流量缩放系数KG, arrayString[0]);
-		map.put(CheckQuestion1Constant.一转展旋比ASP1, arrayString[1]);
-		map.put(CheckQuestion1Constant.最后级展旋比ASPK, arrayString[2]);
-		map.put(CheckQuestion1Constant.进口导叶ABV, arrayString[3]);
-		map.put(CheckQuestion1Constant.转子叶片ABR, arrayString[4]);
-		map.put(CheckQuestion1Constant.静子叶片ABS, arrayString[5]);
-		map.put(CheckQuestion1Constant.尖根弦长比BTHV, arrayString[6]);
-		map.put(CheckQuestion1Constant.展弦比ASPV, arrayString[7]);
-		map.put(CheckQuestion1Constant.稠度BTV, arrayString[8]);
-		map.put(CheckQuestion1Constant.出口内直径DHO, arrayString[9]);
-		map.put(CheckQuestion1Constant.出口外直径DTO, arrayString[10]);
-		map.put(CheckQuestion1Constant.一转尖根弦长比BTH1, arrayString[11]);
+		map.put(CheckQuestionConstant.KG流量缩放系数, arrayString[0]);
+		map.put(CheckQuestionConstant.ASP1一转展旋比, arrayString[1]);
+		map.put(CheckQuestionConstant.ASPK最后级展旋比, arrayString[2]);
+		map.put(CheckQuestionConstant.ABV进口导叶, arrayString[3]);
+		map.put(CheckQuestionConstant.ABR转子叶片, arrayString[4]);
+		map.put(CheckQuestionConstant.ABS静子叶片, arrayString[5]);
+		map.put(CheckQuestionConstant.BTHV尖根弦长比, arrayString[6]);
+		map.put(CheckQuestionConstant.ASPV展弦比, arrayString[7]);
+		map.put(CheckQuestionConstant.BTV稠度, arrayString[8]);
+		map.put(CheckQuestionConstant.DHO出口内直径, arrayString[9]);
+		map.put(CheckQuestionConstant.DTO出口外直径, arrayString[10]);
+		map.put(CheckQuestionConstant.BTH1一转尖根弦长比, arrayString[11]);
 		
 		//#21:E1，DE，CMV，DENR，DENS,DENB，DRES，ALFK，PR0─9 个参数
 		row++;
 		arrayString = spliteRow(list.get(row),9);
-		map.put(CheckQuestion1Constant.第一级E1, arrayString[0]);
-		map.put(CheckQuestion1Constant.最后级与第一级差DE, arrayString[1]);
-		map.put(CheckQuestion1Constant.进口导叶最大相对厚度CMV, arrayString[2]);
-		map.put(CheckQuestion1Constant.转件DENR, arrayString[3]);
-		map.put(CheckQuestion1Constant.静件DENS, arrayString[4]);
-		map.put(CheckQuestion1Constant.叶片DENB, arrayString[5]);
-		map.put(CheckQuestion1Constant.转子根许用应力DRES, arrayString[6]);
-		map.put(CheckQuestion1Constant.最后静子出口气流角ALFK, arrayString[7]);
-		map.put(CheckQuestion1Constant.本气压机前已有压比PRO, arrayString[8]);
+		map.put(CheckQuestionConstant.E1第一级, arrayString[0]);
+		map.put(CheckQuestionConstant.DE最后级与第一级差, arrayString[1]);
+		map.put(CheckQuestionConstant.CMV进口导叶最大相对厚度, arrayString[2]);
+		map.put(CheckQuestionConstant.DENR转件, arrayString[3]);
+		map.put(CheckQuestionConstant.DENS静件, arrayString[4]);
+		map.put(CheckQuestionConstant.DENB叶片, arrayString[5]);
+		map.put(CheckQuestionConstant.DRES转子根许用应力, arrayString[6]);
+		map.put(CheckQuestionConstant.ALFK最后静子出口气流角, arrayString[7]);
+		map.put(CheckQuestionConstant.PRO本气压机前已有压比, arrayString[8]);
 		
 		//#22:HORDA─最小弦长，m
 		row++;
-		map.put(CheckQuestion1Constant.最小弦比HORDA, list.get(row));
+		map.put(CheckQuestionConstant.HORDA最小弦比, list.get(row));
 		
 		return row;
 	}
@@ -778,7 +778,7 @@ public class ReadInputFileData {
 			
 			int ISTAGE = 0;
 			try {
-				ISTAGE = Integer.parseInt((String)map.get(CheckQuestion1Constant.级数_ISTAGE));
+				ISTAGE = Integer.parseInt((String)map.get(CheckQuestionConstant.ISTAGE级数));
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 			}
@@ -837,7 +837,7 @@ public class ReadInputFileData {
 			}
 			grid.add(rowList);
 			
-			map.put("FeaturesCalculate2Panel.grid1",grid);
+			map.put("FeaturesCalculate2Panel.grid1",GridDataUtil.transform(grid));
 		}
 		
 		//#10:IGKA─控制以下4 组数据输入
@@ -847,12 +847,12 @@ public class ReadInputFileData {
 		map.put(FeaturesCalculateConstant.控制参数IGKA,list.get(row));
 		
 		String igka = String.valueOf(map.get(FeaturesCalculateConstant.控制参数IGKA));
-		if("1".equals(kgka)){
+		if("1".equals(igka)){
 			grid = new ArrayList<List<String>>();
 			
 			int ISTAGE = 0;
 			try {
-				ISTAGE = Integer.parseInt((String)map.get(CheckQuestion1Constant.级数_ISTAGE));
+				ISTAGE = Integer.parseInt((String)map.get(CheckQuestionConstant.ISTAGE级数));
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 			}
@@ -893,7 +893,7 @@ public class ReadInputFileData {
 			}
 			grid.add(rowList);
 			
-			map.put("FeaturesCalculate3Panel.grid1",grid);
+			map.put("FeaturesCalculate3Panel.grid1",GridDataUtil.transform(grid));
 		}
 		
 		//#15:IVAR1─控制相对转速和q(λ)初值输入
@@ -993,7 +993,7 @@ public class ReadInputFileData {
 			
 			int ISTAGE = 0;
 			try {
-				ISTAGE = Integer.parseInt((String)map.get(CheckQuestion1Constant.级数_ISTAGE));
+				ISTAGE = Integer.parseInt((String)map.get(CheckQuestionConstant.ISTAGE级数));
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 			}
@@ -1051,19 +1051,30 @@ public class ReadInputFileData {
 		row = parseControlVariable(result,list,row);
 
 		String k12 = String.valueOf(result.get(ControlVariableConstant.检查或设计_K12));
+		//1-设计问题 2-检查问题
 		if("1".equals(k12)){
 			//设计问题
 			row = parseDesignProblem(result,list,row);
+		}else if("2".equals(k12)){
+			//检查问题
+			row = parseCheckQuestion(result,list,row);
 		}
-			
-		//检查问题
-		row = parseCheckQuestion(result,list,row);
 		
-		//特性计算
-		row = parseFeaturesCalculate(result,list,row);
-		
-		//展弦比计算
-		row = parseAspectRatioCalculate(result,list,row);
+		String k = String.valueOf(result.get(ControlVariableConstant.解题类型_K));
+		//1-设计+检查 2-特性 3-设计+检查+特性 4-设计+检查+特性+展弦比
+		if("1".equals(k)){
+			//设计+检查
+		}else if("2".equals(k)){
+			//特性计算
+		}else if("3".equals(k)){
+			//特性计算
+			row = parseFeaturesCalculate(result,list,row);
+		}else if("4".equals(k)){
+			//特性计算
+			row = parseFeaturesCalculate(result,list,row);
+			//展弦比计算
+			row = parseAspectRatioCalculate(result,list,row);
+		}
 		
 		return result;
 	}

@@ -32,8 +32,8 @@ public class CodeList {
 		
 		name = ControlVariableConstant.损失修正符_IZI;
 		codeList = new CodeList(name,new String[][]{
-											new String[]{"0","修正"},
-											new String[]{"1","不修正"}
+											new String[]{"0","不修正"},
+											new String[]{"1","修正"}
 										});
 		codeListMap.put(name, codeList);
 		
@@ -85,7 +85,7 @@ public class CodeList {
 		codeListMap.put(name, codeList);
 		
 		//设计问题
-		name = DesignProblemConstant.叶型标识KF;
+		name = DesignProblemConstant.KF叶型标识;
 		codeList = new CodeList(name,new String[][]{
 					new String[]{"1","BC10"},
 					new String[]{"2","C4"},
@@ -93,7 +93,7 @@ public class CodeList {
 				});
 		codeListMap.put(name, codeList);
 		
-		name = DesignProblemConstant.压气机类型KC;
+		name = DesignProblemConstant.KC压气机类型;
 		codeList = new CodeList(name,new String[][]{
 					new String[]{"1","单压气机"},
 					new String[]{"2","单涵双轴中的低压"},
@@ -106,7 +106,7 @@ public class CodeList {
 				});
 		codeListMap.put(name, codeList);
 		
-		name = DesignProblemConstant.流路输入标识KPATH;
+		name = DesignProblemConstant.KPATH流路输入标识;
 		codeList = new CodeList(name,new String[][]{
 					new String[]{"0","输入等外、中、内径，或给定进口或出口内外径"},
 					new String[]{"1","输入各级转子进口外径，压气机出口外径"},

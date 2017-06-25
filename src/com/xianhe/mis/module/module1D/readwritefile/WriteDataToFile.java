@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.xianhe.mis.module.module1D.constant.AspectRatioCalculateConstant;
-import com.xianhe.mis.module.module1D.constant.CheckQuestion1Constant;
+import com.xianhe.mis.module.module1D.constant.CheckQuestionConstant;
 import com.xianhe.mis.module.module1D.constant.Constant;
 import com.xianhe.mis.module.module1D.constant.ControlVariableConstant;
 import com.xianhe.mis.module.module1D.constant.DesignProblemConstant;
@@ -64,19 +64,19 @@ public class WriteDataToFile {
 		sb.append(map.get(ControlVariableConstant.叶型参数分布_IFH)).append(Constant.blank);
 		sb.append(map.get(ControlVariableConstant.叶排内设站_INZ)).append(Constant.newLine);
 		
-		sb.append(map.get(CheckQuestion1Constant.转速度或第一级转子叶尖切线速度_RPM)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.总压比_PR)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.流量_G)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.进口总压_PO)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.进口总温_TO)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.绝热效率_EFF)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.功率存储系数KH)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.级数_ISTAGE)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.流路输入标识KPATH)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.叶型标识KF)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.压气机类型KC)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.进口段总压回复SIGO)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.进口导叶总压回复SIGV)).append(Constant.newLine);
+		sb.append(map.get(CheckQuestionConstant.RPM转速度或第一级转子叶尖切线速度)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.PR总压比)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.G流量)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.PO进口总压)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.TO进口总温)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.EFF绝热效率)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.KH功率存储系数)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ISTAGE级数)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.KPATH流路输入标识)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.KF叶型标识)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.KC压气机类型)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.SIGO进口段总压回复)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.SIGV进口导叶总压回复)).append(Constant.newLine);
 		
 		//sb.append(map.get(CheckQuestion1Constant.外径DTK)).append(Constant.newLine);
 		//sb.append(map.get(CheckQuestion1Constant.内径DHK)).append(Constant.newLine);
@@ -84,36 +84,36 @@ public class WriteDataToFile {
 		writeGridToBuffer(sb,GridDataUtil.transform((List<List<String>>)map.get("grid1")));
 		writeGridToBuffer(sb,GridDataUtil.transform((List<List<String>>)map.get("grid2")));
 		
-		sb.append(map.get(CheckQuestion1Constant.一转进气流角ALFO)).append(Constant.newLine);
+		sb.append(map.get(CheckQuestionConstant.ALFO一转进气流角)).append(Constant.newLine);
 		
-		sb.append(map.get(CheckQuestion1Constant.第一级KH1)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.逐级递减DKH)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.最小值KHMIN)).append(Constant.newLine);
+		sb.append(map.get(CheckQuestionConstant.KH1第一级)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DKH逐级递减)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.KHMIN最小值)).append(Constant.newLine);
 		
-		sb.append(map.get(CheckQuestion1Constant.流量缩放系数KG)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.一转展旋比ASP1)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.最后级展旋比ASPK)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.进口导叶ABV)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.转子叶片ABR)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.静子叶片ABS)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.尖根弦长比BTHV)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.展弦比ASPV)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.稠度BTV)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.出口内直径DHO)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.出口外直径DTO)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.一转尖根弦长比BTH1)).append(Constant.newLine);
+		sb.append(map.get(CheckQuestionConstant.KG流量缩放系数)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ASP1一转展旋比)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ASPK最后级展旋比)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ABV进口导叶)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ABR转子叶片)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ABS静子叶片)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.BTHV尖根弦长比)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ASPV展弦比)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.BTV稠度)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DHO出口内直径)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DTO出口外直径)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.BTH1一转尖根弦长比)).append(Constant.newLine);
 		
-		sb.append(map.get(CheckQuestion1Constant.第一级E1)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.最后级与第一级差DE)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.进口导叶最大相对厚度CMV)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.转件DENR)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.静件DENS)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.叶片DENB)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.转子根许用应力DRES)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.最后静子出口气流角ALFK)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.本气压机前已有压比PRO)).append(Constant.newLine);
+		sb.append(map.get(CheckQuestionConstant.E1第一级)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DE最后级与第一级差)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.CMV进口导叶最大相对厚度)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DENR转件)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DENS静件)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DENB叶片)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DRES转子根许用应力)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ALFK最后静子出口气流角)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.PRO本气压机前已有压比)).append(Constant.newLine);
 		
-		sb.append(map.get(CheckQuestion1Constant.最小弦比HORDA)).append(Constant.newLine);
+		sb.append(map.get(CheckQuestionConstant.HORDA最小弦比)).append(Constant.newLine);
 		
 		sb.append(map.get(FeaturesCalculateConstant.等转速条线数N)).append(Constant.newLine);
 		
@@ -183,19 +183,19 @@ public class WriteDataToFile {
 		sb.append(map.get(ControlVariableConstant.叶型参数分布_IFH)).append(Constant.blank);
 		sb.append(map.get(ControlVariableConstant.叶排内设站_INZ)).append(Constant.newLine);
 		
-		sb.append(map.get(CheckQuestion1Constant.转速度或第一级转子叶尖切线速度_RPM)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.总压比_PR)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.流量_G)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.进口总压_PO)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.进口总温_TO)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.绝热效率_EFF)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.功率存储系数KH)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.级数_ISTAGE)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.流路输入标识KPATH)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.叶型标识KF)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.压气机类型KC)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.进口段总压回复SIGO)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.进口导叶总压回复SIGV)).append(Constant.newLine);
+		sb.append(map.get(CheckQuestionConstant.RPM转速度或第一级转子叶尖切线速度)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.PR总压比)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.G流量)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.PO进口总压)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.TO进口总温)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.EFF绝热效率)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.KH功率存储系数)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ISTAGE级数)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.KPATH流路输入标识)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.KF叶型标识)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.KC压气机类型)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.SIGO进口段总压回复)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.SIGV进口导叶总压回复)).append(Constant.newLine);
 		
 		//sb.append(map.get(CheckQuestion1Constant.外径DTK)).append(Constant.newLine);
 		//sb.append(map.get(CheckQuestion1Constant.内径DHK)).append(Constant.newLine);
@@ -203,36 +203,36 @@ public class WriteDataToFile {
 		writeGridToBuffer(sb,gridDatas.get("grid1"));
 		writeGridToBuffer(sb,gridDatas.get("grid2"));
 		
-		sb.append(map.get(CheckQuestion1Constant.一转进气流角ALFO)).append(Constant.newLine);
+		sb.append(map.get(CheckQuestionConstant.ALFO一转进气流角)).append(Constant.newLine);
 		
-		sb.append(map.get(CheckQuestion1Constant.第一级KH1)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.逐级递减DKH)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.最小值KHMIN)).append(Constant.newLine);
+		sb.append(map.get(CheckQuestionConstant.KH1第一级)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DKH逐级递减)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.KHMIN最小值)).append(Constant.newLine);
 		
-		sb.append(map.get(CheckQuestion1Constant.流量缩放系数KG)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.一转展旋比ASP1)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.最后级展旋比ASPK)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.进口导叶ABV)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.转子叶片ABR)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.静子叶片ABS)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.尖根弦长比BTHV)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.展弦比ASPV)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.稠度BTV)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.出口内直径DHO)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.出口外直径DTO)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.一转尖根弦长比BTH1)).append(Constant.newLine);
+		sb.append(map.get(CheckQuestionConstant.KG流量缩放系数)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ASP1一转展旋比)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ASPK最后级展旋比)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ABV进口导叶)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ABR转子叶片)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ABS静子叶片)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.BTHV尖根弦长比)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ASPV展弦比)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.BTV稠度)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DHO出口内直径)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DTO出口外直径)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.BTH1一转尖根弦长比)).append(Constant.newLine);
 		
-		sb.append(map.get(CheckQuestion1Constant.第一级E1)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.最后级与第一级差DE)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.进口导叶最大相对厚度CMV)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.转件DENR)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.静件DENS)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.叶片DENB)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.转子根许用应力DRES)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.最后静子出口气流角ALFK)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.本气压机前已有压比PRO)).append(Constant.newLine);
+		sb.append(map.get(CheckQuestionConstant.E1第一级)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DE最后级与第一级差)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.CMV进口导叶最大相对厚度)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DENR转件)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DENS静件)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DENB叶片)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DRES转子根许用应力)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ALFK最后静子出口气流角)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.PRO本气压机前已有压比)).append(Constant.newLine);
 		
-		sb.append(map.get(CheckQuestion1Constant.最小弦比HORDA)).append(Constant.newLine);
+		sb.append(map.get(CheckQuestionConstant.HORDA最小弦比)).append(Constant.newLine);
 		
 		sb.append(map.get(FeaturesCalculateConstant.等转速条线数N)).append(Constant.newLine);
 		
@@ -389,19 +389,19 @@ public class WriteDataToFile {
 	
 	public static void getDesignProblemData(Map map,StringBuffer sb){
 		//#1:RPM,PR,G,P0,T0,EFF,KH,ISTAGE,KPATH,KF,KC,SIG0,SIGV─13 个总参数
-		sb.append(map.get(DesignProblemConstant.转速或第一级转子叶尖切线速度RPM)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.总压比PR)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.流量G)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.进口总压PO)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.进口总温TO)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.绝热效率EFF)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.逐级递减值DKH)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.级数ISTAGE)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.流路输入标识KPATH)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.叶型标识KF)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.压气机类型KC)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.进口段总压恢复SIGO)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.进口导叶总压恢复SIGV)).append(Constant.newLine);
+		sb.append(map.get(DesignProblemConstant.RPM转速或第一级转子叶尖切线速度)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.PR总压比)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.G流量)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.PO进口总压)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.TO进口总温)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.EFF绝热效率)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.DKH逐级递减值)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.ISTAGE级数)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.KPATH流路输入标识)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.KF叶型标识)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.KC压气机类型)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.SIGO进口段总压恢复)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.SIGV进口导叶总压恢复)).append(Constant.newLine);
 		
 		//#2:DT1，D1，DH1，DTC，DMC，DHC，DTK，DFF，DHK─给定流路的9 个直径值
 		writeGridToBuffer(sb,(List<List<String>>)map.get("DesignProblemGrid1"));
@@ -409,84 +409,84 @@ public class WriteDataToFile {
 		//#3A:DRT1(1:ISTAGE)，DCTK─KPATH=1 输入，否则不输;DRT1─各级转子进口外径;DCTK─压气机出口外径
 		//#3B:DRM1(1:ISTAGE)，DCMK─KPATH=2 时输入，否则不输;DRM1─各级转子进口平均直径，m;DCMK─压气机出口平均直径，m
 		//#3C:DRH1(1:ISTAGE)，DCHK,KPATH=3 输入，否则不输;DRH1─各级转子进口内径，m;DCHK─压气机出口内径，m
-		String kpath = (String)map.get(DesignProblemConstant.流路输入标识KPATH);
+		String kpath = (String)map.get(DesignProblemConstant.KPATH流路输入标识);
 		if(kpath!=null && !"0".equals(kpath)){
 			List<List<String>> grid = null;
 			List<String> rowData = null;
 			if("1".equals(kpath)){
 				grid = (List<List<String>>)map.get("DesignProblemDRT1Grid");
-				grid.get(0).add(String.valueOf(map.get(DesignProblemConstant.压气机出口外径DCTK)));
+				grid.get(0).add(String.valueOf(map.get(DesignProblemConstant.DCTK压气机出口外径)));
 				writeGridToBuffer(sb,grid);
 			}else if("2".equals(kpath)){
 				grid = (List<List<String>>)map.get("DesignProblemDRM1Grid");
-				grid.get(0).add(String.valueOf(map.get(DesignProblemConstant.压气机出口平均直径DCMK)));
+				grid.get(0).add(String.valueOf(map.get(DesignProblemConstant.DCMK压气机出口平均直径)));
 				writeGridToBuffer(sb,grid);
 			}else if("3".equals(kpath)){
 				grid = (List<List<String>>)map.get("DesignProblemDRH1Grid");
-				grid.get(0).add(String.valueOf(map.get(DesignProblemConstant.压气机出口内径DCHK)));
+				grid.get(0).add(String.valueOf(map.get(DesignProblemConstant.DCHK压气机出口内径)));
 				writeGridToBuffer(sb,grid);
 			}
 		}
 		
 		//#6:VA1，VAM，VAC，ALF1，OMGN，DOMG，HZ1，HZM，HZK,KH1,DKH，KHMIN ─12 个气动参数
-		sb.append(map.get(DesignProblemConstant.一级进轴速度VA1)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.中段轴速度VAM)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.出口轴速VAC)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.一转进气流角ALF1)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.第中级反力度OMGN)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.第中级后反力度增量DOMG)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.第一级HZ1)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.平均级HZM)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.最后级HZK)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.第一级KH1)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.逐级递减值DKH)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.最小值KHMIN)).append(Constant.newLine);
+		sb.append(map.get(DesignProblemConstant.VA1一级进轴速度)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.VAM中段轴速度)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.VAC出口轴速)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.ALF1一转进气流角)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.OMGN第中级反力度)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.DOMG第中级后反力度增量)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.HZ1第一级)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.HZM平均级)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.HZK最后级)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.KH1第一级)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.DKH逐级递减值)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.KHMIN最小值)).append(Constant.newLine);
 		
 		
 		//#7:KG，ASP1，ASPK，ABV，ABR，ABS，BTHV，ASPV，BTV，DH0，DT0，BTH1─12 个几何参数
-		sb.append(map.get(DesignProblemConstant.流量缩放系数KG)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.一转展弦比ASP1)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.末转展弦比ASPK)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.进口导叶ABV)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.转子叶片ABR)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.静子叶片ABS)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.尖根弦长比BTHV)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.展弦比ASPV)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.稠度BTV)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.出口内直径DHO)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.出口外直径DTO)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.一转尖根弦长比BTH1)).append(Constant.newLine);
+		sb.append(map.get(DesignProblemConstant.KG流量缩放系数)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.ASP1一转展弦比)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.ASPK末转展弦比)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.ABV进口导叶)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.ABR转子叶片)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.ABS静子叶片)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.BTHV尖根弦长比)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.ASPV展弦比)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.BTV稠度)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.DHO出口内直径)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.DTO出口外直径)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.BTH1一转尖根弦长比)).append(Constant.newLine);
 		
 		//#8:E1，DE，CMV，DENR，DENS，DENB，DRES，ALFK，PR0─9 个参数
-		sb.append(map.get(DesignProblemConstant.第一级E1)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.最后级与第一级差DE)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.进口导叶最大相对厚度CMV)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.转件DENR)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.静件DENS)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.叶片DENB)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.转子根许用应力DRES)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.最后静子出口气流角ALFK)).append(Constant.blank);
-		sb.append(map.get(DesignProblemConstant.本压气机前已有压比PRO)).append(Constant.newLine);
+		sb.append(map.get(DesignProblemConstant.E1第一级)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.DE最后级与第一级差)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.CMV进口导叶最大相对厚度)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.DENR转件)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.DENS静件)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.DENB叶片)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.DRES转子根许用应力)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.ALFK最后静子出口气流角)).append(Constant.blank);
+		sb.append(map.get(DesignProblemConstant.PRO本压气机前已有压比)).append(Constant.newLine);
 
 		//#9:HORDA─最小弦长，m
-		sb.append(map.get(DesignProblemConstant.最小弦长HORDA)).append(Constant.newLine);
+		sb.append(map.get(DesignProblemConstant.HORDA最小弦长)).append(Constant.newLine);
 	}
 	
 	public static void getCheckQuestionData(Map map,StringBuffer sb){
 		//#1:RPM,PR,G,P0,T0,EFF,KH,ISTAGE,KPATH,KF,KC,SIG0,SIGV─13 个总参数
-		sb.append(map.get(CheckQuestion1Constant.转速度或第一级转子叶尖切线速度_RPM)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.总压比_PR)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.流量_G)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.进口总压_PO)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.进口总温_TO)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.绝热效率_EFF)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.逐级递减DKH)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.级数_ISTAGE)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.流路输入标识KPATH)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.叶型标识KF)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.压气机类型KC)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.进口段总压回复SIGO)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.进口导叶总压回复SIGV)).append(Constant.newLine);
+		sb.append(map.get(CheckQuestionConstant.RPM转速度或第一级转子叶尖切线速度)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.PR总压比)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.G流量)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.PO进口总压)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.TO进口总温)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.EFF绝热效率)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DKH逐级递减)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ISTAGE级数)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.KPATH流路输入标识)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.KF叶型标识)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.KC压气机类型)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.SIGO进口段总压回复)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.SIGV进口导叶总压回复)).append(Constant.newLine);
 		
 		//准备工作,初始化两个grid,级数
 		List<List<String>> grid1 = (List<List<String>>)map.get("CheckQuestion2Panel.grid1");
@@ -495,8 +495,8 @@ public class WriteDataToFile {
 		grid1 = GridDataUtil.transform(grid1);
 		grid2 = GridDataUtil.transform(grid2);
 		
-		grid1.get(0).add(String.valueOf(map.get(CheckQuestion1Constant.外径DTK)));
-		grid1.get(1).add(String.valueOf(map.get(CheckQuestion1Constant.内径DHK)));
+		grid1.get(0).add(String.valueOf(map.get(CheckQuestionConstant.DTK外径)));
+		grid1.get(1).add(String.valueOf(map.get(CheckQuestionConstant.DHK内径)));
 		
 		List<String> rowData = grid1.get(grid1.size()-1);
 		grid1.remove(rowData);
@@ -506,40 +506,40 @@ public class WriteDataToFile {
 		writeGridToBuffer(sb,grid2);
 		
 		//#18:ALF0─第一级转子前绝对气流角
-		sb.append(map.get(CheckQuestion1Constant.一转进气流角ALFO)).append(Constant.newLine);
+		sb.append(map.get(CheckQuestionConstant.ALFO一转进气流角)).append(Constant.newLine);
 		
 		//#19:KH1，DKH，KHMIN─如已输入KHI 值，此三量均写0.0
-		sb.append(map.get(CheckQuestion1Constant.第一级KH1)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.逐级递减DKH)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.最小值KHMIN)).append(Constant.newLine);
+		sb.append(map.get(CheckQuestionConstant.KH1第一级)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DKH逐级递减)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.KHMIN最小值)).append(Constant.newLine);
 		
 		//#20:KG，FF，FF，ABV，ABR，ABS，BTHV，ASPV，BTV，DH0，DT0，BTH1─12 个结构参数
-		sb.append(map.get(CheckQuestion1Constant.流量缩放系数KG)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.一转展旋比ASP1)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.最后级展旋比ASPK)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.进口导叶ABV)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.转子叶片ABR)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.静子叶片ABS)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.尖根弦长比BTHV)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.展弦比ASPV)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.稠度BTV)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.出口内直径DHO)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.出口外直径DTO)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.一转尖根弦长比BTH1)).append(Constant.newLine);
+		sb.append(map.get(CheckQuestionConstant.KG流量缩放系数)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ASP1一转展旋比)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ASPK最后级展旋比)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ABV进口导叶)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ABR转子叶片)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ABS静子叶片)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.BTHV尖根弦长比)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ASPV展弦比)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.BTV稠度)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DHO出口内直径)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DTO出口外直径)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.BTH1一转尖根弦长比)).append(Constant.newLine);
 		
 		//#21:E1，DE，CMV，DENR，DENS,DENB，DRES，ALFK，PR0─9 个参数
-		sb.append(map.get(CheckQuestion1Constant.第一级E1)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.最后级与第一级差DE)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.进口导叶最大相对厚度CMV)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.转件DENR)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.静件DENS)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.叶片DENB)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.转子根许用应力DRES)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.最后静子出口气流角ALFK)).append(Constant.blank);
-		sb.append(map.get(CheckQuestion1Constant.本气压机前已有压比PRO)).append(Constant.newLine);
+		sb.append(map.get(CheckQuestionConstant.E1第一级)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DE最后级与第一级差)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.CMV进口导叶最大相对厚度)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DENR转件)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DENS静件)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DENB叶片)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.DRES转子根许用应力)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.ALFK最后静子出口气流角)).append(Constant.blank);
+		sb.append(map.get(CheckQuestionConstant.PRO本气压机前已有压比)).append(Constant.newLine);
 		
 		//#22:HORDA─最小弦长，m
-		sb.append(map.get(CheckQuestion1Constant.最小弦比HORDA)).append(Constant.newLine);
+		sb.append(map.get(CheckQuestionConstant.HORDA最小弦比)).append(Constant.newLine);
 	}
 	
 	public static void getFeaturesCalculateData(Map map,StringBuffer sb){
@@ -561,6 +561,7 @@ public class WriteDataToFile {
 		String kgka = String.valueOf(map.get(FeaturesCalculateConstant.控制参数KGKA));
 		if("1".equals(kgka)){
 			List<List<String>> grid = (List<List<String>>)map.get("FeaturesCalculate2Panel.grid1");
+			grid = GridDataUtil.transform(grid);
 			writeGridToBuffer(sb,grid);
 		}
 		
@@ -570,8 +571,9 @@ public class WriteDataToFile {
 		sb.append(map.get(FeaturesCalculateConstant.控制参数IGKA)).append(Constant.newLine);
 		
 		String igka = String.valueOf(map.get(FeaturesCalculateConstant.控制参数IGKA));
-		if("1".equals(kgka)){
+		if("1".equals(igka)){
 			List<List<String>> grid = (List<List<String>>)map.get("FeaturesCalculate3Panel.grid1");
+			grid = GridDataUtil.transform(grid);
 			writeGridToBuffer(sb,grid);
 		}
 		
@@ -672,17 +674,27 @@ public class WriteDataToFile {
 		if("1".equals(k12)){
 			//设计问题
 			getDesignProblemData(map,sb);
+		}else if("2".equals(k12)){
+			//检查问题
+			getCheckQuestionData(map,sb);
+		}
+		
+		String k = String.valueOf(map.get(ControlVariableConstant.解题类型_K));
+		//1-设计+检查 2-特性 3-设计+检查+特性 4-设计+检查+特性+展弦比
+		if("1".equals(k)){
+			//设计+检查
+		}else if("2".equals(k)){
+			//特性计算
+		}else if("3".equals(k)){
+			//特性计算
+			getFeaturesCalculateData(map,sb);
+		}else if("4".equals(k)){
+			//特性计算
+			getFeaturesCalculateData(map,sb);
+			//展弦比计算
+			getAspectRatioCalculateData(map,sb);
 		}
 
-		//检查问题
-		getCheckQuestionData(map,sb);
-		
-		//特性计算
-		getFeaturesCalculateData(map,sb);
-		
-		//展弦比计算
-		getAspectRatioCalculateData(map,sb);
-		
 		return sb;
 	}
 }

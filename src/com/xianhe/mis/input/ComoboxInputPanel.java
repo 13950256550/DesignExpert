@@ -5,12 +5,10 @@ import com.xianhe.core.common.InputItemConfig;
 import com.xianhe.mis.module.module1D.CodeList;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Control;
-import javafx.scene.control.TextField;
 
-public class ComoboxInputPanel extends InputPanel implements EventHandler<ActionEvent>{
+public class ComoboxInputPanel extends InputPanel /*implements EventHandler<ActionEvent>*/{
 
 	public ComoboxInputPanel(InputItemConfig inputItemConfig){
 		super(inputItemConfig);
@@ -25,11 +23,13 @@ public class ComoboxInputPanel extends InputPanel implements EventHandler<Action
 			}
 		}
 		
-		comboBox.setOnAction(this);
+		//comboBox.setOnAction(new InputEventHandler(inputItemConfig.getId()));
+		//comboBox.getSelectionModel().selectedItemProperty().addListener(new InputChangeListener(inputItemConfig.getId()));
+		//comboBox.setOnAction(new ComboboxChangeListener());
 		return comboBox;
 	}
 	
-	@Override
+	//@Override
 	public void handle(ActionEvent event) {
 		this.dataChanged();
 	}

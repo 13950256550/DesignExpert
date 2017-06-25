@@ -7,7 +7,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
 
-public class TextFieldInputPanel extends InputPanel implements EventHandler<ActionEvent>{
+public class TextFieldInputPanel extends InputPanel /*implements EventHandler<ActionEvent>*/{
 
 	public TextFieldInputPanel(InputItemConfig inputItemConfig){
 		super(inputItemConfig);
@@ -15,11 +15,11 @@ public class TextFieldInputPanel extends InputPanel implements EventHandler<Acti
 	
 	public Control createControl(InputItemConfig inputItemConfig){
 		TextField textField = new TextField();
-		textField.setOnAction(this);
+		//textField.setOnAction(this);
 		return textField;
 	}
 	
-	@Override
+	//@Override
 	public void handle(ActionEvent event) {
 		this.dataChanged();
 	}

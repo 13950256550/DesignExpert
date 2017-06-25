@@ -15,6 +15,9 @@ public class ControlVariablePanel extends CommonPanel {
 	public ControlVariablePanel() {
 		FormPanel panel = getFormPanel1();
 		addFormPanel(panel);
+		panel.setInputChangeListener(ControlVariableConstant.检查或设计_K12);
+		panel.setInputChangeListener(ControlVariableConstant.解题类型_K);
+		panel.setInputChangeListener(ControlVariableConstant.损失修正符_IZI);
 		
 		panel = getFormPanel2();
 		addFormPanel(panel,ControlVariableConstant.以下5个参数为向二维设计文件提供输入的控制符);

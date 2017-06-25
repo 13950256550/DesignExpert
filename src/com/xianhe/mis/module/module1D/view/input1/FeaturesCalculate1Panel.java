@@ -17,6 +17,8 @@ public class FeaturesCalculate1Panel extends CommonPanel {
 	public FeaturesCalculate1Panel() {
 		FormPanel panel = getFormPanel1();
 		addFormPanel(panel);
+		panel.setInputChangeListener(FeaturesCalculateConstant.控制参数KGKA);
+		panel.setInputChangeListener(FeaturesCalculateConstant.控制参数IGKA);
 		
 		panel = getFormPanel2();
 		addFormPanel(panel,"NR/QL");

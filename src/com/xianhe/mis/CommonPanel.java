@@ -60,4 +60,16 @@ public class CommonPanel extends VBox {
 			setValue(key,value);
 		}
 	}
+	
+	public void setReadonly(boolean flag){
+		for(FormPanel formPanel:panels){
+			formPanel.setReadonly(flag);
+		}
+	}
+	
+	public void setReadonly(String id,boolean flag){
+		for(FormPanel formPanel:panels){
+			formPanel.setReadonly(id,flag);
+		}
+	}
 }

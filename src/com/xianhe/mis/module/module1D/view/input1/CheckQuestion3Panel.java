@@ -10,7 +10,7 @@ import com.xianhe.core.common.RowConfig;
 import com.xianhe.mis.CommonPanel;
 import com.xianhe.mis.input.FormPanel;
 import com.xianhe.mis.input.GridPanel;
-import com.xianhe.mis.module.module1D.constant.CheckQuestion1Constant;
+import com.xianhe.mis.module.module1D.constant.CheckQuestionConstant;
 
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -18,7 +18,7 @@ import javafx.scene.control.TableView;
 public class CheckQuestion3Panel extends CommonPanel {
 	public CheckQuestion3Panel() {
 		FormPanel panel = getFormPanel1();
-		addFormPanel(panel,CheckQuestion1Constant.K1或K3或K4且K122);
+		addFormPanel(panel,CheckQuestionConstant.K1或K3或K4且K122);
 
 		//Map<String,Object> map = ReadInputFileData.parse1D();
 		//this.setValueFromMap(map);

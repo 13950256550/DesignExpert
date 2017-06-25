@@ -8,8 +8,10 @@ import com.xianhe.mis.module.module1D.CodeList;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.TextAlignment;
 
@@ -168,9 +170,20 @@ public abstract class InputPanel extends HBox{
 		return inputItemConfig.getId();
 	}
 	
-	public void setReadlony(boolean flag){
+	public void setReadonly(boolean flag){
 		if(control!=null){
 			control.setDisable(flag);
+		}
+	}
+	
+	public void setInputChangeListener(){
+		if(control!=null){
+			InputChangeListener listener = new InputChangeListener(inputItemConfig.getId());
+			if(control instanceof ComboBox){
+				((ComboBox)control).getSelectionModel().selectedItemProperty().addListener(listener);
+			}else if(control instanceof TextField){
+				((TextField)control).setOnAction(listener);
+			}
 		}
 	}
 	

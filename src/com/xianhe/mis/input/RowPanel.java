@@ -60,4 +60,28 @@ public class RowPanel extends HBox{
 			}
 		}
 	}
+	
+	public void setInputChangeListener(String id){
+		for(InputPanel inputPanel:inputPanels){
+			String panelId = inputPanel.getInputPanelId();
+			if(id!=null && id.equals(panelId)){
+				inputPanel.setInputChangeListener();
+			}
+		}
+	}
+	
+	public void setReadonly(boolean flag){
+		for(InputPanel inputPanel:inputPanels){
+			inputPanel.setReadonly(flag);
+		}
+	}
+	
+	public void setReadonly(String id,boolean flag){
+		for(InputPanel inputPanel:inputPanels){
+			String panelId = inputPanel.getInputPanelId();
+			if(id!=null && id.equals(panelId)){
+				inputPanel.setReadonly(flag);
+			}
+		}
+	}
 }
