@@ -34,7 +34,8 @@ public class CheckQuestion2Panel extends CommonPanel {
 		InputItemConfig inputItemConfig = new InputItemConfig("CheckQuestion2Panel.grid1",InputItemType.grid);
 		
 		List<String> rowNames = new ArrayList<String>();
-        rowNames.add("1");
+		int istage = Module1DInput1View.getISTAGE();
+		rowNames.add("1");
         rowNames.add("2");
         rowNames.add("3");
         rowNames.add("4");

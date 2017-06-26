@@ -27,4 +27,8 @@ public static String 作业题目_TITLT = "作业题目 TITLT";
 	public static String 叶排内设站_INZ = "叶排内设站 INZ";
 	
 	public static String 以下5个参数为向二维设计文件提供输入的控制符 = "以下5个参数为向二维设计文件提供输入的控制符";
+	
+	public static String DZV进口导叶尖根轴向长度比 = "进口导叶:尖根轴向长度比 DZV";
+	public static String DXV轴向长度缩放系数 = "轴向长度缩放系数 DXV";
+	public static String NZV导叶内加设站数 = "导叶内加设站数 NZV";
 }

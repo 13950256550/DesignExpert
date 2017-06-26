@@ -26,6 +26,7 @@ public class Module {
 	public static Map<String,String> map= new HashMap<String,String>();
 	static{
 		map.put("81", "com.xianhe.mis.module.module1D.view.input1.Module1DInput1View");
+		map.put("82", "com.xianhe.mis.module.module1D.view.input1.Module1DInput2View");
 		map.put("83", "com.xianhe.mis.controller.Module1DController");
 		map.put("84", "com.xianhe.mis.module.module1D.view.output.Module1DOutputView");
 	}

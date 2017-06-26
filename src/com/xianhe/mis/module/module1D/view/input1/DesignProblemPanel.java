@@ -77,10 +77,6 @@ public class DesignProblemPanel extends CommonPanel {
 		
 		inputItemConfigs = new ArrayList<InputItemConfig>();
 		inputItemConfig = new InputItemConfig("DesignProblemGrid1",InputItemType.grid);
-		List<String> rowName = new ArrayList<String>();
-        rowName.add("1");
-        rowName.add("2");
-        inputItemConfig.setRowNames(rowName);
         
         List<String> colName = new ArrayList<String>();
         colName.add("A");

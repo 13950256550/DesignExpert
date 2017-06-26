@@ -20,7 +20,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 
 public class GridPanel extends InputPanel{
 	public static Logger logger = Logger.getLogger(InputPanel.class);
-	private boolean hasRowHeader = false;
+	//private boolean hasRowHeader = false;
 	private int defaultColumnWidth = 100;
 	private int defaultTableViewHeight = 100;
 	private List<List<String>> data = null;
@@ -37,35 +37,52 @@ public class GridPanel extends InputPanel{
 	public Control createControl(InputItemConfig inputItemConfig){
 		return tableView;
 	}
-	
+
 	public void setRowHeader(List<String> rowHeaders){
 		if(rowHeaders!=null && rowHeaders.size()>0){
-			hasRowHeader = true;
+			//hasRowHeader = true;
+			/*
 			TableColumn<Map<Integer,String>, String> col = new TableColumn<Map<Integer,String>, String>("");
 			col.setCellValueFactory(new MapValueFactory(100));
 			col.setCellFactory(new MyCallback());
 			col.setEditable(false);
 			tableView.getColumns().add(0,col);
+			*/
+			int count = 3;
 			ObservableList<Map<Integer,String>> list = tableView.getItems();
 			if(list!=null && list.size()==rowHeaders.size()){
 				for(int i=0;i<rowHeaders.size();i++){
 					Map<Integer,String> row = list.get(i);
 					row.put(100, rowHeaders.get(i));
+					if(rowHeaders.get(i).length()>count){
+						count = rowHeaders.get(i).length();
+					}
 				}
 			}else if(list!=null && list.size()==0){
 				for(int i=0;i<rowHeaders.size();i++){
 					Map<Integer,String> row = new HashMap<Integer,String>();
 					row.put(100, rowHeaders.get(i));
 					list.add(row);
+					if(rowHeaders.get(i).length()>count){
+						count = rowHeaders.get(i).length();
+					}
 				}
 				
 			}
+			tableView.getColumns().get(0).setPrefWidth(count*10);
 			tableView.setPrefHeight((rowHeaders.size()+1)*25);
 		}
 
 	}
 	
 	public void setColumns(String[] columns, int[] widths) {
+		TableColumn<Map<Integer,String>, String> rowNumCol = new TableColumn<Map<Integer,String>, String>("");
+		rowNumCol.setCellValueFactory(new MapValueFactory(100));
+		rowNumCol.setCellFactory(new MyCallback());
+		rowNumCol.setEditable(false);
+		rowNumCol.setPrefWidth(30);
+		tableView.getColumns().add(rowNumCol);
+		
 		if (columns != null && widths != null && columns.length > 0) {
 			for (int i = 0; i < columns.length; i++) {
 				final int pos = i;
@@ -190,6 +207,7 @@ public class GridPanel extends InputPanel{
 				otherList.add(dataRow);
 			}else{
 				dataRow = new HashMap<Integer, String>();
+				dataRow.put(100, String.valueOf(count+1));
 				for(int i=0;i<row.size();i++){
 					dataRow.put(i, row.get(i));
 				}
@@ -199,7 +217,13 @@ public class GridPanel extends InputPanel{
 			count++;
 		}
 		list.removeAll(list);
+		
 		tableView.setItems(otherList);
+		double height = tableView.getPrefHeight();
+		if(height<(count+1)*25+15){
+			height = (count+1)*25+15;
+		}
+		tableView.setPrefHeight(height);
 	}
 	
 	public Object getValue(){
@@ -207,8 +231,7 @@ public class GridPanel extends InputPanel{
 		data = new ArrayList<List<String>>(); 
 		for(Map<Integer,String> row:list){
 			List<String> rowList = new ArrayList<String>();
-			int count = hasRowHeader?row.size()-1:row.size();
-			for(int i=0;i<count;i++){
+			for(int i=0;i<row.size()-1;i++){
 				rowList.add(row.get(i));
 			}
 			data.add(rowList);
@@ -237,5 +260,10 @@ public class GridPanel extends InputPanel{
 	@Override
 	public void setReadonly(boolean flag) {
 		tableView.setDisable(flag);
+	}
+
+	@Override
+	public void setGridRowHeader(List<String> rowNames) {
+		setRowHeader(rowNames);
 	}
 }

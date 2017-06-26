@@ -590,4 +590,28 @@ public class Module1DInput1View extends BorderPane{
 		
 		outputMap.put("FeaturesCalculate3Panel.grid1",grid);
 	}
+	
+	public static Object getValue(String id){
+		Object result = null;
+		
+		for(CommonPanel panel:Module1DInput1View.panels){
+			Object value = panel.getValue(id);
+			if(value!=null){
+				result = value;
+				break;
+			}
+		}
+		return result;
+	}
+	
+	public static int getISTAGE(){
+		Object value = Module1DInput1View.getValue(CheckQuestionConstant.ISTAGE¼¶Êý);
+		int istage = 0;
+		try {
+			istage = Integer.parseInt(String.valueOf(value));
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+		return istage;
+	}
 }

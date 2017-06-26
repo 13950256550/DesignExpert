@@ -30,6 +30,7 @@ public class CheckQuestion3Panel extends CommonPanel {
 		InputItemConfig inputItemConfig = new InputItemConfig("CheckQuestion3Panel.grid1",InputItemType.grid);
 		
 		List<String> rowNames = new ArrayList<String>();
+		int istage = Module1DInput1View.getISTAGE();
         rowNames.add("1");
         rowNames.add("2");
         rowNames.add("3");

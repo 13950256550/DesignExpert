@@ -84,4 +84,13 @@ public class RowPanel extends HBox{
 			}
 		}
 	}
+	
+	public void setGridRowHeader(String id,List<String> rowNames){
+		for(InputPanel inputPanel:inputPanels){
+			String panelId = inputPanel.getInputPanelId();
+			if(id!=null && id.equals(panelId)){
+				inputPanel.setGridRowHeader(rowNames);
+			}
+		}
+	}
 }

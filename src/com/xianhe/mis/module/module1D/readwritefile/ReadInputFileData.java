@@ -17,6 +17,7 @@ import com.xianhe.mis.module.module1D.constant.ControlVariableConstant;
 import com.xianhe.mis.module.module1D.constant.DesignProblemConstant;
 import com.xianhe.mis.module.module1D.constant.FeaturesCalculateConstant;
 import com.xianhe.mis.module.module1D.constant.ZXBCalculateConstant;
+import com.xianhe.mis.module.module1D.view.input1.Module1DInput1View;
 
 public class ReadInputFileData {
 	public static void main(String[] args) {
@@ -334,6 +335,27 @@ public class ReadInputFileData {
 		String[] result = new String[count];
 		if(row!=null){
 			String[] temp = row.split(" ");
+			if(temp!=null){
+				if(temp.length==count){
+					result = temp;
+				}else if(temp.length>count){
+					for(int i=0;i<count;i++){
+						result[i] = temp[i];
+					}
+				}else if(temp.length<count){
+					for(int i=0;i<temp.length;i++){
+						result[i] = temp[i];
+					}
+				}
+			}
+		}
+		return result;
+	}
+	
+	public static String[] spliteRow(String row,String spliteStr,int count){
+		String[] result = new String[count];
+		if(row!=null){
+			String[] temp = row.split(spliteStr);
 			if(temp!=null){
 				if(temp.length==count){
 					result = temp;
@@ -1084,5 +1106,76 @@ public class ReadInputFileData {
 		Map<String,Object> result = parse1D_in1(datas);
 		
 		return result;
+	}
+	
+	public static Map<String,Object> parse1D_in2(List<String> list){
+		Map<String,Object> result = new HashMap<String,Object>();
+		
+		/*
+		IZX=2 或3 时文件#1-#3 行。所载数据为各叶排大致等弦长时的尖根轴向长度比。如需变弦长可据此手工修改调整。
+		如IDX=2，应在上数据后加添下述的轴向长度缩放系数#4-#6 行。
+		如INZ=1，应在上数据后加添下述的各叶排内所设计算站数#7-#9行。
+		*/
+		String[] arrayString = null;
+		List<List<String>> grid = null;
+		//List<String> rowList = null;
+		int row = 0;
+		int istage = Module1DInput1View.getISTAGE();
+		String izx = (String)Module1DInput1View.getValue(ControlVariableConstant.流路转换_IZX);
+		if(izx!=null && ("2".equals(izx)||"3".equals(izx))){
+			grid = new ArrayList<List<String>>();
+			
+			//#1:DZR(1:ISTAGE)─各级转子叶排尖根轴向长度比
+			addLineToGrid(list.get(row),",",istage,grid);
+			//#2:DZS(1:ISTAGE)─各级静子叶排尖根轴向长度比
+			row++;
+			addLineToGrid(list.get(row),",",istage,grid);
+			//#3:DZV─进口导流叶片尖根轴向长度比
+			row++;
+			arrayString = list.get(row).split(",");
+			result.put(ControlVariableConstant.DZV进口导叶尖根轴向长度比, arrayString[0].trim());
+			
+			String idx = (String)Module1DInput1View.getValue(ControlVariableConstant.叶排轴向长度缩放_IDX);
+			if(idx!=null && "2".equals(izx)){
+				//#4:DXR(1:ISTAGE)─各级转子叶排轴向长度缩放系数，以一维计算值为基础，该系数为原长度的百分比。
+				row++;
+				addLineToGrid(list.get(row),",",istage,grid);
+				//#5:DXS(1:ISTAGE)─各级静子叶排轴向长度缩放系数，以一维计算值为基础，该系数为原长度的百分比。
+				row++;
+				addLineToGrid(list.get(row),",",istage,grid);
+				//#6:DXV─进口导流叶片轴向长度缩放系数，以一维计算值为基础，该系数为原长度的百分比。
+				row++;
+				arrayString = list.get(row).split(",");
+				result.put(ControlVariableConstant.DXV轴向长度缩放系数, arrayString[0].trim());
+			}
+			String inz = (String)Module1DInput1View.getValue(ControlVariableConstant.叶排内设站_INZ);
+			if(inz!=null && "1".equals(inz)){
+				//#7:NZR(1:ISTAGE)─各转子叶排内加设的计算站数，至少1 排，不包括进出口站。
+				row++;
+				addLineToGrid(list.get(row),",",istage,grid);
+				//#8:NZS(1:ISTAGE)─各静子叶排内加设的计算站数，至少1 排，不包括进出口站。
+				row++;
+				addLineToGrid(list.get(row),",",istage,grid);
+				//#9:NZV─进口导叶内加设的计算站数，至少1 排，不包括进出口站。
+				row++;
+				arrayString = list.get(row).split(",");
+				result.put(ControlVariableConstant.NZV导叶内加设站数, arrayString[0].trim());
+			}
+			result.put("OneDimensionalDgazdInputPanel.grid1",GridDataUtil.transform(grid));
+		}
+		
+		return result;
+	}
+	
+	public static void addLineToGrid(String line,String spliteStr,int istage,List<List<String>> grid){
+		List<String> rowList = null;
+		String[] arrayString = null;
+		arrayString = spliteRow(line,spliteStr,istage);
+		
+		rowList = new ArrayList<String>();
+		for(String colData:arrayString){
+			rowList.add(colData!=null?colData.trim():colData);
+		}
+		grid.add(rowList);
 	}
 }

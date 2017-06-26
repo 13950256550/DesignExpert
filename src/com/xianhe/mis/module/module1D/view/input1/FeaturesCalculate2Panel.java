@@ -43,16 +43,6 @@ public class FeaturesCalculate2Panel extends CommonPanel {
 		List<InputItemConfig> inputItemConfigs = new ArrayList<InputItemConfig>();
 		InputItemConfig inputItemConfig = new InputItemConfig("FeaturesCalculate2Panel.grid1",InputItemType.grid);
 		
-		List<String> rowNames = new ArrayList<String>();
-	    rowNames.add("1");
-	    rowNames.add("2");
-	    rowNames.add("3");
-	    rowNames.add("4");
-	    rowNames.add("5");
-	    rowNames.add("6");
-	    rowNames.add("7");
-	    inputItemConfig.setRowNames(rowNames);
-	    
 	    List<String> colNames = new ArrayList<String>();
 	    colNames.add("转子攻角修正");
 	    colNames.add("转速线斜率");

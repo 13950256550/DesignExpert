@@ -207,19 +207,6 @@ public class FeaturesCalculate1Panel extends CommonPanel {
 		List<RowConfig> rowConfigs = new ArrayList<RowConfig>();
 		List<InputItemConfig> inputItemConfigs = new ArrayList<InputItemConfig>();
 		InputItemConfig inputItemConfig = new InputItemConfig("FeaturesCalculate1Panel.grid3",InputItemType.grid);
-		
-		List<String> rowNames = new ArrayList<String>();
-        rowNames.add("1");
-        rowNames.add("2");
-        rowNames.add("3");
-        rowNames.add("4");
-        rowNames.add("5");
-        rowNames.add("6");
-        rowNames.add("7");
-        rowNames.add("8");
-        rowNames.add("9");
-        rowNames.add("10");
-        inputItemConfig.setRowNames(rowNames);
         
         List<String> colName = new ArrayList<String>();
         colName.add("1");

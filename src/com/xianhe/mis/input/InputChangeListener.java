@@ -159,6 +159,18 @@ public class InputChangeListener implements ChangeListener<Code>,EventHandler<Ac
 				controlVariablePanel.setReadonly(ControlVariableConstant.PKW,false);
 			}
 		}
+		
+		if(inputId!=null && inputId.equals(ControlVariableConstant.静叶可调_IREG)){
+			CommonPanel FeaturesCalculate1Panel = Module1DInput1View.getCommonPanel(5);
+			//ireg 0-不调 1-调静叶并输入
+			if(newValue!=null && newValue.getKey().equals("0")){
+				FeaturesCalculate1Panel.setReadonly("FeaturesCalculate1Panel.grid3",true);
+			}
+			
+			if(newValue!=null && newValue.getKey().equals("1")){
+				FeaturesCalculate1Panel.setReadonly("FeaturesCalculate1Panel.grid3",false);
+			}
+		}
 	}
 
 }

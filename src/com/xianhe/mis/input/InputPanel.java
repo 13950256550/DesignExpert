@@ -1,5 +1,7 @@
 package com.xianhe.mis.input;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.xianhe.core.common.InputItemConfig;
@@ -223,5 +225,8 @@ public abstract class InputPanel extends HBox{
 			panel = new TextFieldInputPanel(inputItem);
 		}
 		return panel;
+	}
+	
+	public void setGridRowHeader(List<String> rowNames){
 	}
 }

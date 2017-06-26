@@ -60,4 +60,10 @@ public class FormPanel extends VBox {
 			rowPanel.setReadonly(id,flag);
 		}
 	}
+	
+	public void setGridRowHeader(String id,List<String> rowNames){
+		for(RowPanel rowPanel:rowPanels){
+			rowPanel.setGridRowHeader(id, rowNames);
+		}
+	}
 }
