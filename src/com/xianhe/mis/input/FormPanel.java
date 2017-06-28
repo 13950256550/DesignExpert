@@ -75,4 +75,15 @@ public class FormPanel extends VBox {
 		}
 		return control;
 	}
+	
+	public InputPanel getInputPanel(String id){
+		InputPanel result = null;
+		for(RowPanel rowPanel:rowPanels){
+			result = rowPanel.getInputPanel(id);
+			if(result!=null){
+				break;
+			}
+		}
+		return result;
+	}
 }

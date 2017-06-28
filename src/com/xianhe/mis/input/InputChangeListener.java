@@ -85,7 +85,7 @@ public class InputChangeListener implements ChangeListener<Code>,EventHandler<Ac
 			int istage = Module1DInput1View.getISTAGE();
 			if(grid!=null){
 				if(grid.size()<n){
-					for(int row = grid.size()-1;row<n;row++){
+					for(int row = grid.size();row<n;row++){
 						List<String> rowList = new ArrayList<>();
 						for(int col=0;col<istage+1;col++){
 							rowList.add("0.0");
@@ -97,6 +97,66 @@ public class InputChangeListener implements ChangeListener<Code>,EventHandler<Ac
 				}
 			}
 			featuresCalculate1Panel.setValue("FeaturesCalculate1Panel.grid3", grid);
+			
+			grid = (List<List<String>>)featuresCalculate1Panel.getValue("FeaturesCalculate1Panel.grid1");
+			grid = GridDataUtil.transform(grid);
+			if(grid!=null){
+				if(grid.size()<n){
+					for(int row = grid.size();row<n;row++){
+						List<String> rowList = new ArrayList<>();
+						for(int col=0;col<2;col++){
+							rowList.add("0.0");
+						}
+						grid.add(rowList);
+					}
+				}else{
+					grid = GridDataUtil.trim(grid, 0, n-1);
+				}
+			}
+			grid = GridDataUtil.transform(grid);
+			
+			GridPanel gridPanel = (GridPanel)featuresCalculate1Panel.getInputPanel("FeaturesCalculate1Panel.grid1");
+			List<String> columns = new ArrayList<String>();
+			for(int i=0;i<n;i++){
+				columns.add(String.valueOf(i+1));
+			}
+			gridPanel.reSetColumns(columns);
+			featuresCalculate1Panel.setValue("FeaturesCalculate1Panel.grid1", grid);
+		}
+		
+		if(inputId!=null && (inputId.equals(FeaturesCalculateConstant.共同工作线给定LSR))){
+			TextField textField = (TextField)event.getSource();
+			int lsr = 0;
+			try {
+				lsr = Integer.parseInt(textField.getText());
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			}
+			CommonPanel featuresCalculate1Panel = Module1DInput1View.getCommonPanel(5);
+			List<List<String>> grid = (List<List<String>>)featuresCalculate1Panel.getValue("FeaturesCalculate1Panel.grid2");
+			grid = GridDataUtil.transform(grid);
+			if(grid!=null){
+				if(grid.size()<lsr){
+					for(int row = grid.size();row<lsr;row++){
+						List<String> rowList = new ArrayList<>();
+						for(int col=0;col<2;col++){
+							rowList.add("0.0");
+						}
+						grid.add(rowList);
+					}
+				}else{
+					grid = GridDataUtil.trim(grid, 0, lsr-1);
+				}
+			}
+			grid = GridDataUtil.transform(grid);
+			
+			GridPanel gridPanel = (GridPanel)featuresCalculate1Panel.getInputPanel("FeaturesCalculate1Panel.grid2");
+			List<String> columns = new ArrayList<String>();
+			for(int i=0;i<lsr;i++){
+				columns.add(String.valueOf(i+1));
+			}
+			gridPanel.reSetColumns(columns);
+			featuresCalculate1Panel.setValue("FeaturesCalculate1Panel.grid2", grid);
 		}
 	}
 	
@@ -109,7 +169,7 @@ public class InputChangeListener implements ChangeListener<Code>,EventHandler<Ac
 		List<List<String>> grid = (List<List<String>>)checkQuestion2Panel.getValue("CheckQuestion2Panel.grid1");
 		if(grid!=null){
 			if(grid.size()<istage){
-				for(int row = grid.size()-1;row<istage;row++){
+				for(int row = grid.size();row<istage;row++){
 					List<String> rowList = new ArrayList<>();
 					for(int col=0;col<8;col++){
 						rowList.add("0.0");
@@ -127,7 +187,7 @@ public class InputChangeListener implements ChangeListener<Code>,EventHandler<Ac
 		grid.remove(lastRow);
 		if(grid!=null){
 			if(grid.size()<istage){
-				for(int row = grid.size()-1;row<istage;row++){
+				for(int row = grid.size();row<istage;row++){
 					List<String> rowList = new ArrayList<>();
 					for(int col=0;col<8;col++){
 						rowList.add("0.0");
@@ -144,7 +204,7 @@ public class InputChangeListener implements ChangeListener<Code>,EventHandler<Ac
 		grid = (List<List<String>>)featuresCalculate2Panel.getValue("FeaturesCalculate2Panel.grid1");
 		if(grid!=null){
 			if(grid.size()<istage){
-				for(int row = grid.size()-1;row<istage;row++){
+				for(int row = grid.size();row<istage;row++){
 					List<String> rowList = new ArrayList<>();
 					for(int col=0;col<8;col++){
 						rowList.add("0");
@@ -160,7 +220,7 @@ public class InputChangeListener implements ChangeListener<Code>,EventHandler<Ac
 		grid = (List<List<String>>)featuresCalculate3Panel.getValue("FeaturesCalculate3Panel.grid1");
 		if(grid!=null){
 			if(grid.size()<istage){
-				for(int row = grid.size()-1;row<istage;row++){
+				for(int row = grid.size();row<istage;row++){
 					List<String> rowList = new ArrayList<>();
 					for(int col=0;col<8;col++){
 						rowList.add("0");
@@ -179,7 +239,7 @@ public class InputChangeListener implements ChangeListener<Code>,EventHandler<Ac
 		int n = Module1DInput1View.getN();
 		if(grid!=null){
 			if(grid.size()<istage+1){
-				for(int row = grid.size()-1;row<istage;row++){
+				for(int row = grid.size();row<istage+1;row++){
 					List<String> rowList = new ArrayList<>();
 					for(int col=0;col<n;col++){
 						rowList.add("0.0");
@@ -192,6 +252,7 @@ public class InputChangeListener implements ChangeListener<Code>,EventHandler<Ac
 		}
 		grid = GridDataUtil.transform(grid);
 		
+		/*
 		TableView<Map<Integer,String>> tableView = (TableView<Map<Integer,String>>)featuresCalculate1Panel.getInputControl("FeaturesCalculate1Panel.grid3");
 		if(tableView!=null){
 			tableView.getColumns().clear();
@@ -225,7 +286,13 @@ public class InputChangeListener implements ChangeListener<Code>,EventHandler<Ac
 			}
 			tableView.setPrefHeight(100);
 		}
-		
+		*/
+		GridPanel gridPanel = (GridPanel)featuresCalculate1Panel.getInputPanel("FeaturesCalculate1Panel.grid3");
+		List<String> columns = new ArrayList<String>();
+		for(int i=0;i<istage+1;i++){
+			columns.add(String.valueOf(i+1));
+		}
+		gridPanel.reSetColumns(columns);
 		featuresCalculate1Panel.setValue("FeaturesCalculate1Panel.grid3", grid);
 	}
 

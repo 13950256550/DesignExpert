@@ -24,6 +24,7 @@ public class FeaturesCalculate1Panel extends CommonPanel {
 		
 		panel = getFormPanel3();
 		addFormPanel(panel);
+		panel.setInputChangeListener(FeaturesCalculateConstant.共同工作线给定LSR);
 		
 		panel = getFormPanel4();
 		addFormPanel(panel,FeaturesCalculateConstant.共同工作线LSR0输);

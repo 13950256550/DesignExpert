@@ -167,6 +167,22 @@ public class GridPanel extends InputPanel{
 		}
 	}
 	
+	public void reSetColumns(List<String> list){
+		if(list!=null && list.size()>0){
+			int[] widths = new int[list.size()];
+			String[] columns = new String[list.size()];
+			for(int i=0;i<widths.length;i++){
+				widths[i] = defaultColumnWidth;
+				columns[i] = list.get(i);
+			}
+			
+			int rowWidth = (int)tableView.getColumns().get(0).getPrefWidth();
+			tableView.getColumns().clear();
+			setColumns(columns,widths);
+			tableView.getColumns().get(0).setPrefWidth(rowWidth);
+		}
+	}
+	
 	public void setTableHeight(int height){
 		tableView.setPrefHeight(height);
 	}
@@ -199,12 +215,16 @@ public class GridPanel extends InputPanel{
 		int count = 0;
 		for(List<String> row:(List<List<String>>)value){
 			Map<Integer, String> dataRow = null;
+			Map<Integer, String> newRow = null;
 			if(count<list.size()){
+				newRow = new HashMap<Integer, String>();
 				dataRow = list.get(count);
+				newRow.put(100, dataRow.get(100));
 				for(int i=0;i<row.size();i++){
-					dataRow.put(i, row.get(i));
+					//dataRow.put(i, row.get(i));
+					newRow.put(i, row.get(i));
 				}
-				otherList.add(dataRow);
+				otherList.add(newRow);
 			}else{
 				dataRow = new HashMap<Integer, String>();
 				dataRow.put(100, String.valueOf(count+1));

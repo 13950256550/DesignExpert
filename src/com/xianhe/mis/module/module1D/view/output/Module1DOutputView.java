@@ -51,15 +51,10 @@ public class Module1DOutputView extends BorderPane{
 			BufferedReader reader=new BufferedReader(new InputStreamReader(new FileInputStream(EnvReadWriteUtil.getFile(this.fileName)),"gbk"));
 			StringBuilder sb = new StringBuilder();
 			String line=null;
-			logger.info(new Date());
 			while ((line=reader.readLine())!=null) {
-				//textArea.appendText(line);
-				//textArea.appendText("\r\n");
 				sb.append(line).append("\n");
 			}
-			logger.info(new Date());
 			textArea.setText(sb.toString());
-			logger.info(new Date());
 			reader.close();
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();

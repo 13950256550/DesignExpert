@@ -642,12 +642,14 @@ public class WriteDataToFile {
 		String ireg = String.valueOf(map.get(ControlVariableConstant.¾²Ò¶¿Éµ÷_IREG));
 		if("1".equals(ireg)){
 			List<List<String>> grid = (List<List<String>>)map.get("FeaturesCalculate1Panel.grid3");
+			/*
 			int istage = Module1DInput1View.getISTAGE();
 			for(List<String> row:grid){
 				while(row.size()>istage+1){
 					row.remove(row.size()-1);
 				}
 			}
+			*/
 			writeGridToBuffer(sb,grid);
 		}
 	}
