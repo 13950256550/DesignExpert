@@ -18,6 +18,7 @@ import com.xianhe.mis.module.module1D.constant.ControlVariableConstant;
 import com.xianhe.mis.module.module1D.constant.DesignProblemConstant;
 import com.xianhe.mis.module.module1D.constant.FeaturesCalculateConstant;
 import com.xianhe.mis.module.module1D.constant.ZXBCalculateConstant;
+import com.xianhe.mis.module.module1D.view.input1.Module1DInput1View;
 
 public class WriteDataToFile {
 	public static String fileName = "1d_in1_out";
@@ -594,6 +595,9 @@ public class WriteDataToFile {
 			//#16:NR，QL(1:N)─各特性线相对转速和q(λ)初值
 			List<List<String>> grid = (List<List<String>>)map.get("FeaturesCalculate1Panel.grid1");
 			grid = GridDataUtil.transform(grid);
+			if(grid.size()>n){
+				grid = GridDataUtil.trim(grid, 0, n-1);
+			}
 			writeGridToBuffer(sb,grid);
 		}
 		
@@ -638,6 +642,12 @@ public class WriteDataToFile {
 		String ireg = String.valueOf(map.get(ControlVariableConstant.静叶可调_IREG));
 		if("1".equals(ireg)){
 			List<List<String>> grid = (List<List<String>>)map.get("FeaturesCalculate1Panel.grid3");
+			int istage = Module1DInput1View.getISTAGE();
+			for(List<String> row:grid){
+				while(row.size()>istage+1){
+					row.remove(row.size()-1);
+				}
+			}
 			writeGridToBuffer(sb,grid);
 		}
 	}

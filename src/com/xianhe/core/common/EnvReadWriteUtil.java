@@ -12,8 +12,9 @@ public class EnvReadWriteUtil {
 	private static String EnvFile = "DesignFanEnv.ini";
 	
 	public static File getEnvFile(){
-		String path = EnvReadWriteUtil.class.getResource("/").getPath();
-		File file = new File(path+"/"+EnvFile);
+		String path = EnvReadWriteUtil.class.getResource("/DesignFanEnv.ini").getPath();
+		//System.out.println(path);
+		File file = new File(path);
 		return file;
 	}
 	

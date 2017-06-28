@@ -33,6 +33,7 @@ public class CheckQuestion2Panel extends CommonPanel {
 		List<InputItemConfig> inputItemConfigs = new ArrayList<InputItemConfig>();
 		InputItemConfig inputItemConfig = new InputItemConfig("CheckQuestion2Panel.grid1",InputItemType.grid);
 		
+		/*
 		List<String> rowNames = new ArrayList<String>();
 		int istage = Module1DInput1View.getISTAGE();
 		rowNames.add("1");
@@ -43,6 +44,7 @@ public class CheckQuestion2Panel extends CommonPanel {
         rowNames.add("6");
         rowNames.add("7");
         inputItemConfig.setRowNames(rowNames);
+        */
         
         List<String> colNames = new ArrayList<String>();
         colNames.add("转子进口外径");

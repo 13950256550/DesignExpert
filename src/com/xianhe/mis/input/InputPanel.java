@@ -229,4 +229,8 @@ public abstract class InputPanel extends HBox{
 	
 	public void setGridRowHeader(List<String> rowNames){
 	}
+	
+	public Control getInputControl(){
+		return control;
+	}
 }

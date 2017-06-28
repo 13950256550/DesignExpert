@@ -8,6 +8,7 @@ import java.util.Set;
 import com.xianhe.mis.input.FormPanel;
 
 import javafx.geometry.Insets;
+import javafx.scene.control.Control;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.VBox;
 
@@ -71,5 +72,13 @@ public class CommonPanel extends VBox {
 		for(FormPanel formPanel:panels){
 			formPanel.setReadonly(id,flag);
 		}
+	}
+	
+	public Control getInputControl(String id){
+		Control control = null;
+		for(FormPanel formPanel:panels){
+			control = formPanel.getInputControl(id);
+		}
+		return control;
 	}
 }

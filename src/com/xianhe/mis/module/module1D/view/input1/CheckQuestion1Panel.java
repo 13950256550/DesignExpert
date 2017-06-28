@@ -10,12 +10,14 @@ import com.xianhe.core.common.RowConfig;
 import com.xianhe.mis.CommonPanel;
 import com.xianhe.mis.input.FormPanel;
 import com.xianhe.mis.module.module1D.constant.CheckQuestionConstant;
+import com.xianhe.mis.module.module1D.constant.DesignProblemConstant;
 import com.xianhe.mis.module.module1D.readwritefile.ReadInputFileData;
 
 public class CheckQuestion1Panel extends CommonPanel {
 	public CheckQuestion1Panel() {
 		FormPanel panel = getFormPanel1();
 		addFormPanel(panel);
+		panel.setInputChangeListener(CheckQuestionConstant.ISTAGE¼¶Êý);
 		
 		//postProcess();
 		

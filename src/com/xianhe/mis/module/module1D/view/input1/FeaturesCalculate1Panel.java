@@ -2,7 +2,6 @@ package com.xianhe.mis.module.module1D.view.input1;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import com.xianhe.core.common.InputItemConfig;
 import com.xianhe.core.common.InputItemType;
@@ -10,7 +9,6 @@ import com.xianhe.core.common.RowConfig;
 import com.xianhe.mis.CommonPanel;
 import com.xianhe.mis.input.FormPanel;
 import com.xianhe.mis.module.module1D.constant.FeaturesCalculateConstant;
-import com.xianhe.mis.module.module1D.readwritefile.ReadInputFileData;
 
 public class FeaturesCalculate1Panel extends CommonPanel {
 	//FormPanel panel = null;
@@ -19,6 +17,7 @@ public class FeaturesCalculate1Panel extends CommonPanel {
 		addFormPanel(panel);
 		panel.setInputChangeListener(FeaturesCalculateConstant.控制参数KGKA);
 		panel.setInputChangeListener(FeaturesCalculateConstant.控制参数IGKA);
+		panel.setInputChangeListener(FeaturesCalculateConstant.等转速条线数N);
 		
 		panel = getFormPanel2();
 		addFormPanel(panel,"NR/QL");
@@ -208,7 +207,8 @@ public class FeaturesCalculate1Panel extends CommonPanel {
 		List<InputItemConfig> inputItemConfigs = new ArrayList<InputItemConfig>();
 		InputItemConfig inputItemConfig = new InputItemConfig("FeaturesCalculate1Panel.grid3",InputItemType.grid);
         
-        List<String> colName = new ArrayList<String>();
+        List<String> colNames = new ArrayList<String>();
+        /*
         colName.add("1");
         colName.add("2");
         colName.add("3");
@@ -217,7 +217,12 @@ public class FeaturesCalculate1Panel extends CommonPanel {
         colName.add("6");
         colName.add("7");
         colName.add("8");
-        inputItemConfig.setColumnNames(colName);
+        */
+        int istage = Module1DInput1View.getISTAGE();
+        for(int i=1;i<istage+2;i++){
+        	colNames.add(String.valueOf(i));
+        }
+        inputItemConfig.setColumnNames(colNames);
         
 		inputItemConfigs.add(inputItemConfig);
 		rowConfigs.add(new RowConfig(inputItemConfigs));

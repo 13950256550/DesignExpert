@@ -147,9 +147,10 @@ public class Module {
 		if(document==null){
 			try {
 				SAXReader reader = new SAXReader();
-				String path = MainFrame.class.getResource("/").getFile();
-				File file = new File(path+"/FileMapping.xml");
-				document = reader.read(file);
+				//String path = MainFrame.class.getResource("/").getFile();
+				//File file = new File(path+"/FileMapping.xml");
+				//document = reader.read(file);
+				document = reader.read(MainFrame.class.getResource("/FileMapping.xml"));
 			} catch (DocumentException e) {
 				e.printStackTrace();
 			}

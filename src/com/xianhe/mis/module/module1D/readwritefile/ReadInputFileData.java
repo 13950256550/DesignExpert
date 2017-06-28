@@ -346,6 +346,11 @@ public class ReadInputFileData {
 					for(int i=0;i<temp.length;i++){
 						result[i] = temp[i];
 					}
+					/*
+					for(int i=temp.length-1;i<count;i++){
+						result[i] = "0";
+					}
+					*/
 				}
 			}
 		}

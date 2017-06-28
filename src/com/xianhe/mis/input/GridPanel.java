@@ -228,7 +228,7 @@ public class GridPanel extends InputPanel{
 	
 	public Object getValue(){
 		ObservableList<Map<Integer,String>> list = tableView.getItems();
-		data = new ArrayList<List<String>>(); 
+		data = new ArrayList<List<String>>();
 		for(Map<Integer,String> row:list){
 			List<String> rowList = new ArrayList<String>();
 			for(int i=0;i<row.size()-1;i++){
@@ -265,5 +265,10 @@ public class GridPanel extends InputPanel{
 	@Override
 	public void setGridRowHeader(List<String> rowNames) {
 		setRowHeader(rowNames);
+	}
+
+	@Override
+	public Control getInputControl() {
+		return tableView;
 	}
 }

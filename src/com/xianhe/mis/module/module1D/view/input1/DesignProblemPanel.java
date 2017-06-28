@@ -15,6 +15,7 @@ public class DesignProblemPanel extends CommonPanel {
 	public DesignProblemPanel() {
 		FormPanel panel = getFormPanel1();
 		addFormPanel(panel);
+		panel.setInputChangeListener(DesignProblemConstant.ISTAGE级数);
 		
 		panel = getFormPanel2();
 		addFormPanel(panel,DesignProblemConstant.KPATH流路输入标识);

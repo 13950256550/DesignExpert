@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.xianhe.core.common.InputItemConfig;
 
+import javafx.scene.control.Control;
 import javafx.scene.layout.HBox;
 
 public class RowPanel extends HBox{
@@ -92,5 +93,16 @@ public class RowPanel extends HBox{
 				inputPanel.setGridRowHeader(rowNames);
 			}
 		}
+	}
+	
+	public Control getInputControl(String id){
+		Control control = null;
+		for(InputPanel inputPanel:inputPanels){
+			String panelId = inputPanel.getInputPanelId();
+			if(id!=null && id.equals(panelId)){
+				control = inputPanel.getInputControl();
+			}
+		}
+		return control;
 	}
 }

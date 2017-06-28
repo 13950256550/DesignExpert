@@ -261,7 +261,7 @@ public class MainFrame extends Application implements ChangeListener<TreeItem <S
 		Thread thread = new Thread(){
 			@Override
 			public void run() {
-				new Module1DController().calculate(textArea);
+				new Module1DController().calculate(path,textArea);
 			}
 		};
 		

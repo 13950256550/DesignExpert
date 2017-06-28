@@ -1,19 +1,31 @@
 package com.xianhe.mis.input;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.log4j.Logger;
 
 import com.xianhe.core.common.Code;
 import com.xianhe.mis.CommonPanel;
 import com.xianhe.mis.module.module1D.constant.AspectRatioCalculateConstant;
+import com.xianhe.mis.module.module1D.constant.CheckQuestionConstant;
 import com.xianhe.mis.module.module1D.constant.ControlVariableConstant;
+import com.xianhe.mis.module.module1D.constant.DesignProblemConstant;
 import com.xianhe.mis.module.module1D.constant.FeaturesCalculateConstant;
+import com.xianhe.mis.module.module1D.readwritefile.GridDataUtil;
 import com.xianhe.mis.module.module1D.view.input1.Module1DInput1View;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TableColumn.CellEditEvent;
+import javafx.scene.control.cell.MapValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 public class InputChangeListener implements ChangeListener<Code>,EventHandler<ActionEvent> {
 	public static Logger logger = Logger.getLogger(InputChangeListener.class);
@@ -35,6 +47,186 @@ public class InputChangeListener implements ChangeListener<Code>,EventHandler<Ac
 				aspectRatioCalculatePanel.setReadonly("AspectRatioCalculatePanel.grid1", false);
 			}
 		}
+		
+		if(inputId!=null && (inputId.equals(CheckQuestionConstant.ISTAGE级数) ||(inputId.equals(DesignProblemConstant.ISTAGE级数)))){
+			TextField textField = (TextField)event.getSource();
+			String value = textField.getText();
+			CommonPanel designProblemPanel = Module1DInput1View.getCommonPanel(1);
+			CommonPanel checkQuestion1Panel = Module1DInput1View.getCommonPanel(2);
+			String value1 = String.valueOf(designProblemPanel.getValue(DesignProblemConstant.ISTAGE级数));
+			String value2 = String.valueOf(checkQuestion1Panel.getValue(CheckQuestionConstant.ISTAGE级数));
+			
+			if(!value1.equals(value)){
+				designProblemPanel.setValue(DesignProblemConstant.ISTAGE级数, value);
+			}
+			if(!value2.equals(value)){
+				checkQuestion1Panel.setValue(CheckQuestionConstant.ISTAGE级数, value);
+			}
+			
+			int istage = 0;
+			try {
+				istage = Integer.parseInt(value);		
+				setGridDataByIstage(istage);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(inputId!=null && (inputId.equals(FeaturesCalculateConstant.等转速条线数N))){
+			TextField textField = (TextField)event.getSource();
+			int n = 0;
+			try {
+				n = Integer.parseInt(textField.getText());
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			}
+			CommonPanel featuresCalculate1Panel = Module1DInput1View.getCommonPanel(5);
+			List<List<String>> grid = (List<List<String>>)featuresCalculate1Panel.getValue("FeaturesCalculate1Panel.grid3");
+			int istage = Module1DInput1View.getISTAGE();
+			if(grid!=null){
+				if(grid.size()<n){
+					for(int row = grid.size()-1;row<n;row++){
+						List<String> rowList = new ArrayList<>();
+						for(int col=0;col<istage+1;col++){
+							rowList.add("0.0");
+						}
+						grid.add(rowList);
+					}
+				}else{
+					grid = GridDataUtil.trim(grid, 0, n-1);
+				}
+			}
+			featuresCalculate1Panel.setValue("FeaturesCalculate1Panel.grid3", grid);
+		}
+	}
+	
+	public void setGridDataByIstage(int istage){
+		CommonPanel checkQuestion2Panel = Module1DInput1View.getCommonPanel(3);
+		CommonPanel checkQuestion3Panel = Module1DInput1View.getCommonPanel(4);
+		CommonPanel featuresCalculate2Panel = Module1DInput1View.getCommonPanel(6);
+		CommonPanel featuresCalculate3Panel = Module1DInput1View.getCommonPanel(7);
+		
+		List<List<String>> grid = (List<List<String>>)checkQuestion2Panel.getValue("CheckQuestion2Panel.grid1");
+		if(grid!=null){
+			if(grid.size()<istage){
+				for(int row = grid.size()-1;row<istage;row++){
+					List<String> rowList = new ArrayList<>();
+					for(int col=0;col<8;col++){
+						rowList.add("0.0");
+					}
+					grid.add(rowList);
+				}
+			}else{
+				grid = GridDataUtil.trim(grid, 0, istage-1);
+			}
+		}
+		checkQuestion2Panel.setValue("CheckQuestion2Panel.grid1", grid);
+		
+		grid = (List<List<String>>)checkQuestion3Panel.getValue("CheckQuestion3Panel.grid1");
+		List<String> lastRow = grid.get(grid.size()-1);
+		grid.remove(lastRow);
+		if(grid!=null){
+			if(grid.size()<istage){
+				for(int row = grid.size()-1;row<istage;row++){
+					List<String> rowList = new ArrayList<>();
+					for(int col=0;col<8;col++){
+						rowList.add("0.0");
+					}
+					grid.add(rowList);
+				}
+			}else{
+				grid = GridDataUtil.trim(grid, 0, istage-1);
+			}
+		}
+		grid.add(lastRow);
+		checkQuestion3Panel.setValue("CheckQuestion3Panel.grid1", grid);
+		
+		grid = (List<List<String>>)featuresCalculate2Panel.getValue("FeaturesCalculate2Panel.grid1");
+		if(grid!=null){
+			if(grid.size()<istage){
+				for(int row = grid.size()-1;row<istage;row++){
+					List<String> rowList = new ArrayList<>();
+					for(int col=0;col<8;col++){
+						rowList.add("0");
+					}
+					grid.add(rowList);
+				}
+			}else{
+				grid = GridDataUtil.trim(grid, 0, istage-1);
+			}
+		}
+		featuresCalculate2Panel.setValue("FeaturesCalculate2Panel.grid1", grid);
+		
+		grid = (List<List<String>>)featuresCalculate3Panel.getValue("FeaturesCalculate3Panel.grid1");
+		if(grid!=null){
+			if(grid.size()<istage){
+				for(int row = grid.size()-1;row<istage;row++){
+					List<String> rowList = new ArrayList<>();
+					for(int col=0;col<8;col++){
+						rowList.add("0");
+					}
+					grid.add(rowList);
+				}
+			}else{
+				grid = GridDataUtil.trim(grid, 0, istage-1);
+			}
+		}
+		featuresCalculate3Panel.setValue("FeaturesCalculate3Panel.grid1", grid);
+		
+		CommonPanel featuresCalculate1Panel = Module1DInput1View.getCommonPanel(5);
+		grid = (List<List<String>>)featuresCalculate1Panel.getValue("FeaturesCalculate1Panel.grid3");
+		grid = GridDataUtil.transform(grid);
+		int n = Module1DInput1View.getN();
+		if(grid!=null){
+			if(grid.size()<istage+1){
+				for(int row = grid.size()-1;row<istage;row++){
+					List<String> rowList = new ArrayList<>();
+					for(int col=0;col<n;col++){
+						rowList.add("0.0");
+					}
+					grid.add(rowList);
+				}
+			}else{
+				grid = GridDataUtil.trim(grid, 0, istage);
+			}
+		}
+		grid = GridDataUtil.transform(grid);
+		
+		TableView<Map<Integer,String>> tableView = (TableView<Map<Integer,String>>)featuresCalculate1Panel.getInputControl("FeaturesCalculate1Panel.grid3");
+		if(tableView!=null){
+			tableView.getColumns().clear();
+			
+			TableColumn<Map<Integer,String>, String> rowNumCol = new TableColumn<Map<Integer,String>, String>("");
+			rowNumCol.setCellValueFactory(new MapValueFactory(100));
+			rowNumCol.setCellFactory(new MyCallback());
+			rowNumCol.setEditable(false);
+			rowNumCol.setPrefWidth(30);
+			tableView.getColumns().add(rowNumCol);
+			String[] columns = new String[istage+1];
+			int[] widths = new int[istage+1];
+			for(int i=0;i<istage+1;i++){
+				columns[i] = String.valueOf(i+1);
+				widths[i] = 100;
+			}
+			if (columns != null && widths != null && columns.length > 0) {
+				for (int i = 0; i < columns.length; i++) {
+					final int pos = i;
+					TableColumn<Map<Integer,String>, String> col = new TableColumn<Map<Integer,String>, String>(columns[i]);
+					col.setPrefWidth(widths[i]);
+					col.setCellValueFactory(new MapValueFactory(i));
+					col.setCellFactory(TextFieldTableCell.forTableColumn());
+					col.setOnEditCommit((CellEditEvent<Map<Integer, String>, String> event)->{
+						Map<Integer,String> row = event.getTableView().getItems().get(event.getTablePosition().getRow());
+						row.put(pos,event.getNewValue());
+					});
+					
+					tableView.getColumns().add(col);
+				}
+			}
+			tableView.setPrefHeight(100);
+		}
+		
+		featuresCalculate1Panel.setValue("FeaturesCalculate1Panel.grid3", grid);
 	}
 
 	@Override

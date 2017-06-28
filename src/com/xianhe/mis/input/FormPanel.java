@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.xianhe.core.common.RowConfig;
 
+import javafx.scene.control.Control;
 import javafx.scene.layout.VBox;
 
 public class FormPanel extends VBox {
@@ -65,5 +66,13 @@ public class FormPanel extends VBox {
 		for(RowPanel rowPanel:rowPanels){
 			rowPanel.setGridRowHeader(id, rowNames);
 		}
+	}
+	
+	public Control getInputControl(String id){
+		Control control = null;
+		for(RowPanel rowPanel:rowPanels){
+			control = rowPanel.getInputControl(id);
+		}
+		return control;
 	}
 }
