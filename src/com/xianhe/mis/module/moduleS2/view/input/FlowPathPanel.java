@@ -1,11 +1,10 @@
 package com.xianhe.mis.module.moduleS2.view.input;
 
 import java.awt.Color;
-import java.awt.Point;
+import java.awt.Insets;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +17,8 @@ import org.jfree.chart.ChartRenderingInfo;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.entity.ChartEntity;
+import org.jfree.chart.entity.EntityCollection;
 import org.jfree.chart.entity.XYItemEntity;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
@@ -86,10 +87,11 @@ public class FlowPathPanel extends JFreeChartPanel implements ChartMouseListener
 		localXYSplineRenderer.setSeriesPaint(count-2, Color.BLUE);
 		
 		for(MouseListener listener:this.getChartPanel().getMouseListeners()){
-			//this.getChartPanel().removeMouseListener(listener);
+			this.getChartPanel().removeMouseListener(listener);
+			//logger.info(listener.getClass().getName());
 		}
 		this.getChartPanel().addMouseListener(this);
-		this.getChartPanel().addChartMouseListener(this);
+		//this.getChartPanel().addChartMouseListener(this);
 		this.getChartPanel().addMouseMotionListener(this);
 		
 		this.getChartPanel().setMouseZoomable(false);
@@ -146,6 +148,43 @@ public class FlowPathPanel extends JFreeChartPanel implements ChartMouseListener
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		Insets insets = this.getChartPanel().getInsets();
+		int x = (int) ((e.getX() - insets.left) / this.getChartPanel().getScaleX());
+		int y = (int) ((e.getY() - insets.top) / this.getChartPanel().getScaleY());
+		ChartEntity entity = null;
+		//ChartRenderingInfo
+		ChartRenderingInfo info = this.getChartPanel().getChartRenderingInfo();
+		if (info != null) {
+			EntityCollection entities = info.getEntityCollection();
+			if (entities != null) {
+				entity = entities.getEntity(x, y);
+			}
+		}
+		
+		if(entity!=null){
+			logger.info(entity);
+		}
+
+		if (entity != null){
+			xyItemEntity = (XYItemEntity)entity;
+			findSeriesByXYDataItem(xyItemEntity);
+		}else{
+			return;
+		}
+		
+		XYPlot xyPlot = (XYPlot) this.getChart().getPlot();
+		XYLineAndShapeRenderer localXYLineAndShapeRenderer = (XYLineAndShapeRenderer) xyPlot.getRenderer();
+
+		XYSeriesCollection xySeriesCollection = (XYSeriesCollection)xyPlot.getDataset(0);
+		
+		XYDataItem item = xySeriesCollection.getSeries(xyItemEntity.getSeriesIndex()).getDataItem(xyItemEntity.getItem());
+		if(tempSeries==null){
+			tempSeries = new XYSeries("temp");
+			xySeriesCollection.addSeries(tempSeries);
+		}
+		tempSeries.clear();
+		tempSeries.add(new XYDataItem(item.getXValue(),item.getYValue()));
+		localXYLineAndShapeRenderer.setSeriesShapesVisible(xySeriesCollection.getSeriesCount()-1, true);
 	}
 
 	@Override
@@ -299,6 +338,10 @@ public class FlowPathPanel extends JFreeChartPanel implements ChartMouseListener
 		distance += Math.pow((item1.getYValue()-item2.getYValue()),2);
 		
 		return distance;
+	}
+	
+	public void reLoadGridData(){
+		
 	}
 
 }
