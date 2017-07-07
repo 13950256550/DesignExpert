@@ -42,8 +42,6 @@ public class ChartPanel extends BorderPane{
 		setCenter(lineChart);
 	}
 
-
-
 	public void addSeries(Series series){
 		if(series!=null){
 			for(int i=0;i<lineChart.getData().size();i++){
@@ -55,4 +53,13 @@ public class ChartPanel extends BorderPane{
 			lineChart.getData().add(series);
 		}
 	}
+
+	public LineChart getLineChart() {
+		return lineChart;
+	}
+
+	public void setLineChart(LineChart lineChart) {
+		this.lineChart = lineChart;
+	}
+	
 }

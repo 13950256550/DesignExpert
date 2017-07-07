@@ -80,6 +80,7 @@ public class Module1DOutputView extends BorderPane{
 		addTab21(tabPane2);
 		addTab22(tabPane2);
 		addTab23(tabPane2);
+		addTab24(tabPane2);
 	}
 	
 	public void addTab21(TabPane tabPane){
@@ -110,5 +111,15 @@ public class Module1DOutputView extends BorderPane{
 		
 		FlowPathPanel flowPathPanel = new FlowPathPanel();
 		tab.setContent(flowPathPanel);
+	}
+	
+	public void addTab24(TabPane tabPane){
+		Tab tab = new Tab();
+		tab.setClosable(false);
+		tab.setText("Ãÿ–‘Õº");
+		tabPane.getTabs().add(tab);
+		
+		FeaturesChartPanel featuresChartPanel = new FeaturesChartPanel();
+		tab.setContent(featuresChartPanel);
 	}
 }

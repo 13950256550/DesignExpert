@@ -1,16 +1,11 @@
 package com.xianhe.mis.module.module1D.readwritefile;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.xianhe.core.common.EnvReadWriteUtil;
+import com.xianhe.mis.module.ReadDataFile;
 import com.xianhe.mis.module.module1D.constant.AspectRatioCalculateConstant;
 import com.xianhe.mis.module.module1D.constant.CheckQuestionConstant;
 import com.xianhe.mis.module.module1D.constant.ControlVariableConstant;
@@ -19,7 +14,7 @@ import com.xianhe.mis.module.module1D.constant.FeaturesCalculateConstant;
 import com.xianhe.mis.module.module1D.constant.ZXBCalculateConstant;
 import com.xianhe.mis.module.module1D.view.input1.Module1DInput1View;
 
-public class ReadInputFileData {
+public class ReadInputFileData extends ReadDataFile{
 	public static void main(String[] args) {
 		//File file = PathUtil.get1D_in1File();
 		//List<String> datas = ReadInputFileData.readFile(file);
@@ -47,37 +42,12 @@ public class ReadInputFileData {
 		return ReadInputFileData.parse1D_in1();
 	}
 	
+	/*
 	public static List<String> readFile(){
 		File file = EnvReadWriteUtil.getFile("/1D/1d_in1");
 		return readFile(file);
 	}
-	
-	public static List<String> readFile(File file){
-		List<String> result = new ArrayList<String>();
-		
-		BufferedReader in = null;
-		long count = 0;
-		
-		try {
-			in = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-			String line = null;
-			while((line = in.readLine())!=null){
-				result.add(line);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally{
-			if(in!=null){
-				try {
-					in.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return result;
-	}
-	
+	*/
 	public static Map<String,Object> parse1D(List<String> list){
 		Map<String,Object> result = new HashMap<String,Object>();
 		
@@ -328,53 +298,6 @@ public class ReadInputFileData {
 		row++;
 		result.put(ZXBCalculateConstant.´­ÕñÔ£¶ÈÊäÈëNCU, list.get(row));
 		
-		return result;
-	}
-	
-	public static String[] spliteRow(String row,int count){
-		String[] result = new String[count];
-		if(row!=null){
-			String[] temp = row.split(" ");
-			if(temp!=null){
-				if(temp.length==count){
-					result = temp;
-				}else if(temp.length>count){
-					for(int i=0;i<count;i++){
-						result[i] = temp[i];
-					}
-				}else if(temp.length<count){
-					for(int i=0;i<temp.length;i++){
-						result[i] = temp[i];
-					}
-					/*
-					for(int i=temp.length-1;i<count;i++){
-						result[i] = "0";
-					}
-					*/
-				}
-			}
-		}
-		return result;
-	}
-	
-	public static String[] spliteRow(String row,String spliteStr,int count){
-		String[] result = new String[count];
-		if(row!=null){
-			String[] temp = row.split(spliteStr);
-			if(temp!=null){
-				if(temp.length==count){
-					result = temp;
-				}else if(temp.length>count){
-					for(int i=0;i<count;i++){
-						result[i] = temp[i];
-					}
-				}else if(temp.length<count){
-					for(int i=0;i<temp.length;i++){
-						result[i] = temp[i];
-					}
-				}
-			}
-		}
 		return result;
 	}
 	
@@ -1107,7 +1030,7 @@ public class ReadInputFileData {
 	}
 	
 	public static Map<String,Object> parse1D_in1(){
-		List<String> datas = readFile();
+		List<String> datas = readFile("/1D/1d_in1");
 		Map<String,Object> result = parse1D_in1(datas);
 		
 		return result;
@@ -1170,17 +1093,5 @@ public class ReadInputFileData {
 		}
 		
 		return result;
-	}
-	
-	public static void addLineToGrid(String line,String spliteStr,int istage,List<List<String>> grid){
-		List<String> rowList = null;
-		String[] arrayString = null;
-		arrayString = spliteRow(line,spliteStr,istage);
-		
-		rowList = new ArrayList<String>();
-		for(String colData:arrayString){
-			rowList.add(colData!=null?colData.trim():colData);
-		}
-		grid.add(rowList);
 	}
 }

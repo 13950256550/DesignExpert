@@ -111,8 +111,9 @@ public class MainFrame extends Application implements ChangeListener<TreeItem <S
 	public void handle(MouseEvent event) {
 		if(event.getClickCount()==2){
 			TreeView<Module> tree = (TreeView<Module>)event.getSource();
-			if(tree.getSelectionModel().getSelectedItem().isLeaf()){
-				Item item = (Item)tree.getSelectionModel().getSelectedItem().getValue();
+			TreeItem treeitem = tree.getSelectionModel().getSelectedItem();
+			if(treeitem!=null && treeitem.isLeaf()){
+				Item item = (Item)treeitem.getValue();
 
 				if(item.getType().equals("IN")){
 					handleShowView(item.getCaption(),Module.map.get(item.getCode()),item.getPath());

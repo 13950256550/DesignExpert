@@ -38,7 +38,7 @@ public class Module1DInput1View extends BorderPane{
 	private static List<CommonPanel> panels = null;
 	public static TextArea textArea = null;
 	public static TabPane tabPane2 = null;
-	private String fileName = null;
+	private static String fileName = null;
 	
 	public Module1DInput1View(String fileName){
 		this.fileName = fileName;
@@ -799,7 +799,7 @@ public class Module1DInput1View extends BorderPane{
 		} catch (NumberFormatException e) {
 		}
 		if(n==0){
-			List<String> datas = ReadInputFileData.readFile();
+			List<String> datas = ReadInputFileData.readFile(fileName);
 			Map<String,Object> map = ReadInputFileData.parse1D_in1(datas);
 			try {
 				n = Integer.parseInt(String.valueOf(map.get(FeaturesCalculateConstant.等转速条线数N)));
@@ -837,7 +837,7 @@ public class Module1DInput1View extends BorderPane{
 		}
 		
 		if(istage==0){
-			List<String> datas = ReadInputFileData.readFile();
+			List<String> datas = ReadInputFileData.readFile(fileName);
 			Map<String,Object> map = ReadInputFileData.parse1D_in1(datas);
 			try {
 				istage = Integer.parseInt(String.valueOf(map.get(DesignProblemConstant.ISTAGE级数)));

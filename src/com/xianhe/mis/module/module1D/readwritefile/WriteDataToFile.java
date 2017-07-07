@@ -23,7 +23,7 @@ import com.xianhe.mis.module.module1D.view.input1.Module1DInput1View;
 public class WriteDataToFile {
 	public static String fileName = "1d_in1_out";
 	public static void main(String[] args) {
-		List<String> list = ReadInputFileData.readFile();
+		List<String> list = ReadInputFileData.readFile("");
 		Map map = ReadInputFileData.parse1D(list);
 		
 		Map<String,List<List<String>>> gridDatas = new HashMap<String,List<List<String>>>();

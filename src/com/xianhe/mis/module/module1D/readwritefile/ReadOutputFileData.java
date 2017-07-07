@@ -4,13 +4,16 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.jfree.data.xy.XYDataItem;
 
 import com.xianhe.core.common.EnvReadWriteUtil;
+import com.xianhe.mis.module.ReadDataFile;
 
 import javafx.scene.chart.XYChart.Data;
 
-public class ReadOutputFileData {
+public class ReadOutputFileData extends ReadDataFile{
+	public static Logger logger = Logger.getLogger(ReadOutputFileData.class);
 	public static String path = EnvReadWriteUtil.getWorkPath();
 	
 	public static void main(String[] args) {
@@ -22,8 +25,12 @@ public class ReadOutputFileData {
 		gridData = GridDataUtil.trim(gridData,1,16);
 		GridDataUtil.printList(gridData);
 		*/
+		/*
 		List<List<Data>> gridData = readFlowPathData();
 		GridDataUtil.printPointList2(gridData);
+		*/
+		List<List<String>> gridData = ReadOutputFileData.readPerfData();
+		GridDataUtil.printList(gridData);
 	}
 	
 	
@@ -94,33 +101,10 @@ public class ReadOutputFileData {
 		return result;
 	}
 	
-	public static List<List<String>> readOperData(){
-		List<List<String>> result = new ArrayList<List<String>>();
-		
-		String fileName = path+"/1D/oper.dat";
-		String path = ReadInputFileData.class.getResource("/").getPath();
-		File file = new File(fileName);
-		
-		List<String> rows = ReadInputFileData.readFile(file);
-		for(String row:rows){
-			List<String> rowList = new ArrayList<String>();
-			String[] arrayString = row.split(" ");
-			for(String col:arrayString){
-				if(col!=null && !"".equals(col)){
-					rowList.add(col);
-				}
-			}
-			result.add(rowList);
-		}
-		
-		return result;
-	}
-	
 	public static List<List<String>> readPerf2Data(){
 		List<List<String>> result = new ArrayList<List<String>>();
 		
 		String fileName = path+"/1D/perf2.dat";
-		String path = ReadInputFileData.class.getResource("/").getPath();
 		File file = new File(fileName);
 		
 		List<String> rows = ReadInputFileData.readFile(file);
@@ -139,24 +123,24 @@ public class ReadOutputFileData {
 	}
 	
 	public static List<List<String>> readSurgData(){
+		return readFileDataByColWidths(path+"/1D/surg.dat",new int[]{12,10});
+	}
+	
+	public static List<List<String>> readOperData(){
+		return readFileDataByColWidths(path+"/1D/oper.dat",new int[]{11,10});
+	}
+	
+	public static List<List<String>> readPerfData(){
 		List<List<String>> result = new ArrayList<List<String>>();
-		
-		String fileName = path+"/1D/surg.dat";
-		String path = ReadInputFileData.class.getResource("/").getPath();
-		File file = new File(fileName);
-		
-		List<String> rows = ReadInputFileData.readFile(file);
-		for(String row:rows){
-			List<String> rowList = new ArrayList<String>();
-			String[] arrayString = row.split(" ");
-			for(String col:arrayString){
-				if(col!=null && !"".equals(col)){
-					rowList.add(col);
+		File directory = new File(path+"/1D");
+		if(directory.exists() && directory.isDirectory()){
+			File[] files = directory.listFiles();
+			for(File file:files){
+				if(file.isFile() && file.getName().startsWith("perf")){
+					readFileData(result,file);
 				}
 			}
-			result.add(rowList);
 		}
-		
 		return result;
 	}
 	
@@ -312,7 +296,6 @@ public class ReadOutputFileData {
 				result.add(line);
 			}
 		}
-		
 		return result;
 	}
 

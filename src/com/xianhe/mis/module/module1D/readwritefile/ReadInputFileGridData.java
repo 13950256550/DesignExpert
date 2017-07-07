@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ReadInputFileGridData {
 	public static void main(String[] args) {
-		List<String> datas = ReadInputFileData.readFile();
+		List<String> datas = ReadInputFileData.readFile("");
 		
 		List<List<String>> gridData = readGrid6(datas);
 		printList(gridData);
