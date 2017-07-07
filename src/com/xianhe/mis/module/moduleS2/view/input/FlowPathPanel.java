@@ -73,7 +73,7 @@ public class FlowPathPanel extends JFreeChartPanel implements ChartMouseListener
 		NumberAxis axis = (NumberAxis)localXYPlot.getDomainAxis();
 		//axis.setRange(-200, 500);
 		axis = (NumberAxis)localXYPlot.getRangeAxis();
-		//axis.setRange(-200, 500);
+		axis.setRange(-300, 500);
 		XYLineAndShapeRenderer localXYSplineRenderer = (XYLineAndShapeRenderer)localXYPlot.getRenderer();
 		XYSeriesCollection localXYSeriesCollection = (XYSeriesCollection)chart.getXYPlot().getDataset(0);
 		int count = localXYSeriesCollection.getSeriesCount();
@@ -125,15 +125,17 @@ public class FlowPathPanel extends JFreeChartPanel implements ChartMouseListener
 		ValueAxis xAxis = xyPlot.getDomainAxis();
 		double x = xAxis.java2DToValue(e.getX(), localRectangle2D,RectangleEdge.BOTTOM);
 		double y = yAxis.java2DToValue(e.getY(), localRectangle2D,RectangleEdge.LEFT);
-
-		tempSeries.clear();
-		XYDataItem item = new XYDataItem(x,y);
-		tempSeries.add(item);
 		
-		updateSeriesByXYDataItem(item);
+		synchronized(tempSeries){
+			tempSeries.clear();
+			XYDataItem item = new XYDataItem(x,y);
+			tempSeries.add(item);
+			
+			updateSeriesByXYDataItem(item);
+		}
 		
-		XYPlot localXYPlot = (XYPlot) this.getChart().getPlot();
-		XYLineAndShapeRenderer localXYLineAndShapeRenderer = (XYLineAndShapeRenderer) localXYPlot.getRenderer();
+		//XYPlot localXYPlot = (XYPlot) this.getChart().getPlot();
+		//XYLineAndShapeRenderer localXYLineAndShapeRenderer = (XYLineAndShapeRenderer) localXYPlot.getRenderer();
 		//localXYLineAndShapeRenderer.setSeriesShapesVisible(localXYSeriesCollection.getSeriesCount()-1, true);
 
 	}
@@ -246,11 +248,26 @@ public class FlowPathPanel extends JFreeChartPanel implements ChartMouseListener
 		for(int[] data:selectSeries){
 			XYSeries xySeries = getXYSeries(data[0]);
 			List<XYDataItem> list = new ArrayList<XYDataItem>();
-			for(int i=0;i<xySeries.getItemCount();i++){
-				if(i==data[1]){
+			if(xySeries.getItemCount()==2){
+				XYDataItem item1 = (XYDataItem)xySeries.getItems().get(0);
+				XYDataItem item2 = (XYDataItem)xySeries.getItems().get(1);
+				double distance1 = getXYDataItemDistance(item,item1);
+				double distance2 = getXYDataItemDistance(item,item2);
+				
+				if(distance1>distance2){
+					list.add(item1);
 					list.add(item);
 				}else{
-					list.add(xySeries.getDataItem(i));
+					list.add(item2);
+					list.add(item);
+				}
+			}else{
+				for(int i=0;i<xySeries.getItemCount();i++){
+					if(i==data[1]){
+						list.add(item);
+					}else{
+						list.add(xySeries.getDataItem(i));
+					}
 				}
 			}
 			
@@ -265,6 +282,23 @@ public class FlowPathPanel extends JFreeChartPanel implements ChartMouseListener
 		XYPlot xyPlot = (XYPlot) this.getChart().getPlot();
 		XYSeriesCollection xySeriesCollection = (XYSeriesCollection)xyPlot.getDataset(0);
 		return xySeriesCollection.getSeries(seriesIndex);
+	}
+	
+	public void printXYSeriesInfo(XYSeries series){
+		List<XYDataItem> list = new ArrayList<XYDataItem>();
+		for(int i=0;i<series.getItemCount();i++){
+			list.add(series.getDataItem(i));
+		}
+		
+		logger.info(list);
+	}
+	
+	public double getXYDataItemDistance(XYDataItem item1,XYDataItem item2){
+		double distance = 0;
+		distance = Math.pow((item1.getXValue()-item2.getXValue()),2);
+		distance += Math.pow((item1.getYValue()-item2.getYValue()),2);
+		
+		return distance;
 	}
 
 }
